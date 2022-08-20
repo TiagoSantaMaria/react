@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import CartWidget from './components/CartWidget/CartWidget';
+import NavBar from './components/Navbar/NavBar';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar/>
+      <CartWidget
+      name='Hamburguesa Triple'
+      img='https://www.clarin.com/img/2021/05/20/Lj4vcOHr__720x0__1.jpg'
+      desc='Triple Carne, Panceta y CHEDDAR'
+      />
     </div>
   );
 }
