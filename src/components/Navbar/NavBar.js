@@ -32,7 +32,7 @@ const NavBar = ({img}) => {
 
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{background:"white"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
