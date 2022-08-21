@@ -4,7 +4,7 @@ import { AppBar, Typography, Toolbar, Tab, Tabs, Button, CardMedia, useMediaQuer
 import DrawerComp from '../DrawerComp/DrawerComp';
 
 const NavBarr = ({img}) => {
-  const [value, setValue] = useState();
+  const [value=0, setValue] = useState();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
   
@@ -62,11 +62,7 @@ const NavBarr = ({img}) => {
                               </Button>
                             </>
                           )
-
-}
-
-
-
+                        }
               </Toolbar>
             </AppBar>
         </React.Fragment>
