@@ -18,14 +18,15 @@ const NavBarr = ({img}) => {
                               <Typography>
                               <Tabs textColor="" sx={{marginLeft:""}}>
                                 <DrawerComp/>
-                                <Tab label= <CardMedia sx={{width:150}}
+                                <Tabs textColor="" sx={{marginLeft:""}}>
+                                <CardMedia sx={{width:165}}
                                   component="img"
-                                  height="60"
+                                  height="65"
                                   image={img}
                                   textColor="black"
-                                  alt="hamburguesa"/>/
-                                >
-                                  
+                                  alt="hamburguesa"
+                                />
+                              </Tabs>
                               </Tabs>
                               </Typography>
                               <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
@@ -37,14 +38,13 @@ const NavBarr = ({img}) => {
                           ):(
                             <>
                               <Tabs textColor="" sx={{marginLeft:""}}>
-                                <Tab label= 
-                                  <CardMedia sx={{width:150}}
+                                <CardMedia sx={{width:180}}
                                   component="img"
-                                  height="60"
+                                  height="70"
                                   image={img}
                                   textColor="black"
-                                  alt="hamburguesa"/>/
-                                >
+                                  alt="hamburguesa"
+                                />
                               </Tabs>
                               <Tabs textColor="" sx={{marginLeft:"auto"}} 
                                 value={value} 
