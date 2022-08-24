@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import ItemCountInCard from '../ItemCount/ItemCountInCard';
 
 export default function CardFood({name, img, desc}) {
   return (
@@ -22,6 +23,8 @@ export default function CardFood({name, img, desc}) {
           <Typography variant="body2" color="text.secondary">
             {desc}  
           </Typography>
+          <ItemCountInCard
+          />
         </CardContent>
       </CardActionArea>
     </Card>

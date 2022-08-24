@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
-import CartWidget from '../CartWidget/CartWidget'
+import ItemCountInNavBar from '../ItemCount/ItemCountInNavBar';
 import { AppBar, Typography, Toolbar, Tab, Tabs, Button, CardMedia, useMediaQuery, useTheme } from '@mui/material'
 import DrawerComp from '../DrawerComp/DrawerComp';
+
 
 const NavBarr = ({img}) => {
   const [value=0, setValue] = useState();
@@ -30,8 +31,8 @@ const NavBarr = ({img}) => {
                               </Tabs>
                               </Typography>
                               <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
-                                <CartWidget
-                                num='10'
+                                <ItemCountInNavBar
+                                counter="10"
                                 />
                               </Button>
                             </>
@@ -56,8 +57,8 @@ const NavBarr = ({img}) => {
                                 <Tab label="Ayuda"/>
                               </Tabs>
                               <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
-                                <CartWidget
-                                num='10'
+                                <ItemCountInNavBar
+                                counter="10"
                                 />
                               </Button>
                             </>
