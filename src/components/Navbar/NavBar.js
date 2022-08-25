@@ -17,22 +17,22 @@ const NavBarr = ({img}) => {
                           isMatch ? (
                             <>
                               <Typography>
-                              <Tabs textColor="" sx={{marginLeft:""}}>
-                                <DrawerComp/>
                                 <Tabs textColor="" sx={{marginLeft:""}}>
-                                <CardMedia sx={{width:165}}
-                                  component="img"
-                                  height="65"
-                                  image={img}
-                                  textColor="black"
-                                  alt="hamburguesa"
-                                />
-                              </Tabs>
-                              </Tabs>
+                                  <DrawerComp/>
+                                  <Tabs textColor="" sx={{marginLeft:""}}>
+                                    <CardMedia sx={{width:165}}
+                                      component="img"
+                                      height="65"
+                                      image={img}
+                                      textColor="black"
+                                      alt="hamburguesa"
+                                    />
+                                  </Tabs>
+                                </Tabs>
                               </Typography>
                               <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
                                 <ItemCountInNavBar
-                                counter="10"
+                                counter="-"
                                 />
                               </Button>
                             </>
@@ -58,7 +58,7 @@ const NavBarr = ({img}) => {
                               </Tabs>
                               <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
                                 <ItemCountInNavBar
-                                counter="10"
+                                counter="-"
                                 />
                               </Button>
                             </>

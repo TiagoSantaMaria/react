@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import IconButton from '@mui/material/IconButton';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
-
+import { ButtonGroup, Button  } from '@mui/material';
+import './ItemCountInCard.css'
 
 let stockBurguer = 10;
 const ItemCountInCard = () => {
@@ -23,15 +22,17 @@ const ItemCountInCard = () => {
   }
   return (
     <div>
-      <div>
-        <button onClick={handlerCounterUp}>+</button>
-          🛒{counter}
-        <button onClick={handlerCounterDown}>-</button>
-        <IconButton color="primary" aria-label="add to shopping cart">
-          <AddShoppingCartIcon />
-        </IconButton>
+      <div className='acomodoCard'> 
+        <ButtonGroup size="small" aria-label="small button group" sx={{mt:1.5, bgcolor:'text.primary'}}>
+          <Button onClick={handlerCounterUp}>+</Button>
+          <Button>
+            <IconButton color="primary" aria-label="add to shopping cart" sx={{fontSize:"small"}}>
+            🛒{counter}
+            </IconButton>
+          </Button>
+          <Button onClick={handlerCounterDown}>-</Button>
+        </ButtonGroup>
       </div>
-      
     </div>
   )
 }
