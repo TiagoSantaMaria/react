@@ -3,21 +3,26 @@ import IconButton from '@mui/material/IconButton';
 import { ButtonGroup, Button  } from '@mui/material';
 import './ItemCountInCard.css'
 
-let stockBurguer = 10;
-const ItemCountInCard = () => {
+
+const ItemCountInCard = ({stockFood, onAdd}) => {
   const [counter, setCounter] = useState(0);
+
+  const [stock, setStock] = useState(stockFood);
+
+  const agregarCantidad = () => {
+    onAdd(counter);
+  }
+
   const handlerCounterUp = () =>{
-    if (stockBurguer > 0){
+    if (stock > 0){
       setCounter(counter + 1);
-      stockBurguer = stockBurguer - 1;
-      console.log(stockBurguer);
+      setStock(stock - 1);
     }
   }
   const handlerCounterDown = () =>{
-    if (counter>0 && stockBurguer<=10){
+    if (counter>0 && stock<=10){
       setCounter(counter - 1);
-      stockBurguer = stockBurguer + 1;
-      console.log(stockBurguer);
+      setStock(stock + 1);
     }
   }
   return (
@@ -25,7 +30,7 @@ const ItemCountInCard = () => {
       <div className='acomodoCard'> 
         <ButtonGroup size="small" aria-label="small button group" sx={{mt:1.5, bgcolor:'text.primary'}}>
           <Button onClick={handlerCounterUp}>+</Button>
-          <Button>
+          <Button onClick={agregarCantidad}>
             <IconButton color="primary" aria-label="add to shopping cart" sx={{fontSize:"small"}}>
             🛒{counter}
             </IconButton>

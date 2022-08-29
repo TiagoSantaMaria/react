@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
 
-export default function CardFood({name, img, desc}) {
+const CardFood = ({name, img, desc, stock, onAdd}) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -24,9 +24,12 @@ export default function CardFood({name, img, desc}) {
             {desc}  
           </Typography>
           <ItemCountInCard
+            stockFood={stock}
+            onAdd={onAdd}
           />
         </CardContent>
       </CardActionArea>
     </Card>
   );
 }
+export default CardFood
