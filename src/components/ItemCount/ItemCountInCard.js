@@ -10,7 +10,11 @@ const ItemCountInCard = ({stockFood, onAdd}) => {
   const [stock, setStock] = useState(stockFood);
 
   const agregarCantidad = () => {
-    onAdd(counter);
+    if(counter>0){
+      onAdd(counter);
+      setCounter(0);
+    }
+    
   }
 
   const handlerCounterUp = () =>{

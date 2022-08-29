@@ -3,9 +3,7 @@ import CardFood from '../CardFood/CardFood';
 
 const ItemListContainer = () => {
   const onAdd = (quantify) =>{
-    if (quantify>0){
-      alert(`Se agregaron ${quantify}`);
-    }
+    alert(`Se agregaron ${quantify}`);
   }
 
   return (
