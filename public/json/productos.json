@@ -1,0 +1,30 @@
+[
+    {
+    "idComida":1,
+    "nameFood":"Hamburguesa",
+    "valueFood":850,
+    "descFood":"Triple Queso",
+    "stockFood":10,
+    "img": "https://www.clarin.com/img/2021/05/20/Lj4vcOHr__720x0__1.jpg"},
+    {
+    "idComida":2,
+    "nameFood":"Fideos",
+    "valueFood":550,
+    "descFood":"Especialidad de la casa",
+    "stockFood":6,
+    "img": "https://recetasfideos.pro/wp-content/uploads/2021/01/fideos-con-salsa-de-soja.jpg"},
+    {
+    "idComida":3,
+    "nameFood":"Ravioles",
+    "valueFood":780,
+    "descFood":"C/ salsa blanca",
+    "stockFood":2,
+    "img": "https://es.cravingsjournal.com/wp-content/uploads/2021/09/ravioles-de-ricotta-y-espinaca-internet-3.jpg"},
+    {
+    "idComida":4,
+    "nameFood":"Bebidas",
+    "valueFood":450,
+    "descFood":"C/ alcohol",
+    "stockFood":5,
+    "img": "https://media.gq.com.mx/photos/5e53f6b69f7827000899f887/3:4/w_1932,h_2576,c_limit/lista-de-bebidas-alcoholicas-por-nivel-de-porcentaje-de-alcohol-dos.jpg"}
+]

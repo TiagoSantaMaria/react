@@ -1,0 +1,8 @@
+.acomodoGeneral{
+    
+    display: flex;
+    flex-direction: row;
+}
+.acomodoItemList{
+    margin: 50px;
+}

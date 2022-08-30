@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
 
-const CardFood = ({name, img, desc, stock, onAdd}) => {
+const CardFood = ({name, img, desc, stock, onAdd, value}) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -22,6 +22,12 @@ const CardFood = ({name, img, desc, stock, onAdd}) => {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {desc}  
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Stock:{stock}  
+          </Typography>
+          <Typography gutterBottom variant="h6" component="div">
+            Valor: ${value}
           </Typography>
           <ItemCountInCard
             stockFood={stock}
