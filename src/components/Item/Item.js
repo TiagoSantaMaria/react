@@ -6,13 +6,13 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
 
-const CardFood = ({name, img, desc, stock, onAdd, value}) => {
+const Item = ({name, img, desc, stock, onAdd, value}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width:220 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height=""
+          height="220"
           image={img}
           alt="hamburguesa"
         />
@@ -38,4 +38,4 @@ const CardFood = ({name, img, desc, stock, onAdd, value}) => {
     </Card>
   );
 }
-export default CardFood
+export default Item

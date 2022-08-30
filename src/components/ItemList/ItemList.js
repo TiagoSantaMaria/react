@@ -1,26 +1,25 @@
 import React from 'react'
-import CardFood from '../Item/Item'
+import Item from '../Item/Item'
 import '../ItemList/ItemList.css'
 
 
 const ItemList = ({foodsArray, onAdd}) => {
   return (
     <div className='acomodoGeneral'>
-        {
-        foodsArray.map((food)=>
         <div className='acomodoItemList'> 
-            <CardFood
+        {
+        foodsArray.map((food) =>
+            <Item
             name={food.nameFood}
             desc={food.descFood}
             stock={food.stockFood}
             value={food.valueFood}
             img={food.img}
-            onAdd={onAdd}/>
-        </div>
-        )
+            onAdd={onAdd}
+            />)
         }
+        </div>
     </div>
-    
     )
 }
 
