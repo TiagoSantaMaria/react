@@ -5,9 +5,7 @@ import '../ItemList/ItemList.css'
 
 const ItemList = ({foodsArray, onAdd}) => {
   return (
-    <div className='acomodoGeneral'>
-        <div className='acomodoItemList'> 
-        {
+        
         foodsArray.map((food) =>
             <Item
             name={food.nameFood}
@@ -17,9 +15,7 @@ const ItemList = ({foodsArray, onAdd}) => {
             img={food.img}
             onAdd={onAdd}
             />)
-        }
-        </div>
-    </div>
+        
     )
 }
 

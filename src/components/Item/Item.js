@@ -5,9 +5,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
+import '../Item/Item.css'
 
 const Item = ({name, img, desc, stock, onAdd, value}) => {
   return (
+    <div className='divideCard'>
+    {
     <Card sx={{ width:220 }}>
       <CardActionArea>
         <CardMedia
@@ -36,6 +39,8 @@ const Item = ({name, img, desc, stock, onAdd, value}) => {
         </CardContent>
       </CardActionArea>
     </Card>
+    }
+    </div>
   );
 }
 export default Item

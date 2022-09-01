@@ -1,0 +1,10 @@
+.divPadre{
+    width: 100vw;
+}
+
+.divHijo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
