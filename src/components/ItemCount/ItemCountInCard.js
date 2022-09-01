@@ -32,7 +32,7 @@ const ItemCountInCard = ({stockFood, onAdd}) => {
   return (
     <div>
       <div className='acomodoCard'> 
-        <ButtonGroup size="small" aria-label="small button group" sx={{mt:1.5, bgcolor:'text.primary'}}>
+        <ButtonGroup size="small" aria-label="small button group" sx={{mt:1.5, bgcolor:'#e3f2fd'}}>
           <Button onClick={handlerCounterUp}>+</Button>
           <Button onClick={agregarCantidad}>
             <IconButton color="primary" aria-label="add to shopping cart" sx={{fontSize:"small"}}>

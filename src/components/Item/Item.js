@@ -10,16 +10,16 @@ import '../Item/Item.css'
 const Item = ({name, img, desc, stock, onAdd, value}) => {
   return (
     <div className='divideCard'>
-    {
-    <Card sx={{ width:220 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="220"
-          image={img}
+      <Card sx={{ width:220 }}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="220"
+            image={img}
           alt="hamburguesa"
-        />
-        <CardContent>
+          />
+        </CardActionArea>
+        <CardContent sx={{height:70, bgcolor:'#f3e5f5'}}>
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
@@ -32,14 +32,14 @@ const Item = ({name, img, desc, stock, onAdd, value}) => {
           <Typography gutterBottom variant="h6" component="div">
             Valor: ${value}
           </Typography>
+        </CardContent>
+        <CardContent sx={{height:38, bgcolor:'#f3e5f5'}}>
           <ItemCountInCard
             stockFood={stock}
             onAdd={onAdd}
-          />
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    }
+          />  
+        </CardContent>        
+      </Card>
     </div>
   );
 }
