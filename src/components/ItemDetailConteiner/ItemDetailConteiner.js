@@ -5,11 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
-import '../Item/Item.css'
 import { Link } from 'react-router-dom';
 
 
-const Item = ({name, img, desc, stock, onAdd, value, idFood}) => {
+const ItemDetailConteiner = ({name, img, desc, stock, onAdd, value, idFood}) => {
   return (
     <div className='divideCard'>
       <Card sx={{ width:220 }}>
@@ -47,4 +46,4 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood}) => {
     </div>
   );
 }
-export default Item
+export default ItemDetailConteiner

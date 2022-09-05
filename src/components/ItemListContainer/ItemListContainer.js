@@ -3,6 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import LoadingComp from '../LoadingComp/LoadingComp'
 import '../ItemListContainer/ItemListContainer.css'
 
+
 const ItemListContainer = () => {
   //NOTIFICACION ADD CARRITO
   const onAdd = (quantify) =>{
@@ -27,6 +28,9 @@ const ItemListContainer = () => {
       console.log("error")
     }
   },[])
+
+
+
 
   return (
     <div className='divPadre'>

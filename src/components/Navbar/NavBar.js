@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ItemCountInNavBar from '../ItemCount/ItemCountInNavBar';
 import { AppBar, Typography, Toolbar, Tab, Tabs, Button, CardMedia, useMediaQuery, useTheme } from '@mui/material'
 import DrawerComp from '../DrawerComp/DrawerComp';
-
+import { Link } from 'react-router-dom';
+//CSS
+import './NavBar.css'
 
 const NavBarr = ({img}) => {
-  const [value=0, setValue] = useState();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
   
@@ -20,6 +21,7 @@ const NavBarr = ({img}) => {
                                 <Tabs textColor="" sx={{marginLeft:""}}>
                                   <DrawerComp/>
                                   <Tabs textColor="" sx={{marginLeft:""}}>
+                                  <Link className='linksReact' to = {`/`}>
                                     <CardMedia sx={{width:165}}
                                       component="img"
                                       height="65"
@@ -27,6 +29,7 @@ const NavBarr = ({img}) => {
                                       textColor="black"
                                       alt="hamburguesa"
                                     />
+                                  </Link>  
                                   </Tabs>
                                 </Tabs>
                               </Typography>
@@ -39,22 +42,22 @@ const NavBarr = ({img}) => {
                           ):(
                             <>
                               <Tabs textColor="" sx={{marginLeft:""}}>
-                                <CardMedia sx={{width:180}}
-                                  component="img"
-                                  height="70"
-                                  image={img}
-                                  textColor="black"
-                                  alt="hamburguesa"
-                                />
+                                <Link className='linksReact' to = {`/`}>
+                                  <CardMedia sx={{width:175}}
+                                    component="img"
+                                    height="70"
+                                    image={img}
+                                    textColor="black"
+                                    alt="hamburguesa"
+                                  />
+                                </Link> 
                               </Tabs>
-                              <Tabs textColor="" sx={{marginLeft:"auto"}} 
-                                value={value} 
-                                onChange={(e,value)=> setValue(value)} 
-                                indicatorColor="secondary">
-                                <Tab label="Inicio"/>
-                                <Tab label="Carta"/>
-                                <Tab label="Reserva"/>
-                                <Tab label="Ayuda"/>
+                              <Tabs textColor="" sx={{marginLeft:"auto"}}>
+                                <Link className='linksReact' to = {`/`}> <Tab label="Inicio"/> </Link>
+                                <Link className='linksReact' to = {`/foodmenu`}> <Tab label="Carta"/> </Link>
+                                {/* <Tab label="Reserva"/>
+                                <Tab label="Ayuda"/> */}
+                                
                               </Tabs>
                               <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
                                 <ItemCountInNavBar
