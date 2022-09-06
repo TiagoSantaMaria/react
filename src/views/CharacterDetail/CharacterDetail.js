@@ -9,10 +9,15 @@ const CharacterDetail = () => {
   //PETICION A API
   useEffect(() => {
     try{
-      fetch(`json/productos.json/food/${id}`)
+      fetch(`../json/productos.json`)
       .then((response) => response.json())
-      .then((food) => setFood(food));
+      .then((food) => {
+        let foodFilterById = food.filter(food=>food.idFood === parseInt(id));
+        setFood(foodFilterById)
+      });
       setTimeout(()=>{
+        console.log(food);
+        console.log(id);
         setIsLoading(false);
       },2000)
     }catch (error) {
