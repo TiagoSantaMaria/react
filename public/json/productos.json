@@ -5,6 +5,7 @@
     "valueFood":850,
     "descFood":"Triple Queso",
     "stockFood":10,
+    "completeDesc":"Una hamburguesa es un sándwich hecho a base de carne molida o de origen vegetal,​ aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse.",
     "img": "https://www.clarin.com/img/2021/05/20/Lj4vcOHr__720x0__1.jpg"},
     {
     "idFood":2,
@@ -12,6 +13,7 @@
     "valueFood":550,
     "descFood":"Especialidad de la casa",
     "stockFood":6,
+    "completeDesc":"Una hamburguesa es un sándwich hecho a base de carne molida o de origen vegetal,​ aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse.",
     "img": "https://recetasfideos.pro/wp-content/uploads/2021/01/fideos-con-salsa-de-soja.jpg"},
     {
     "idFood":3,
@@ -19,6 +21,7 @@
     "valueFood":780,
     "descFood":"C/ salsa blanca",
     "stockFood":2,
+    "completeDesc":"Una hamburguesa es un sándwich hecho a base de carne molida o de origen vegetal,​ aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse.",
     "img": "https://es.cravingsjournal.com/wp-content/uploads/2021/09/ravioles-de-ricotta-y-espinaca-internet-3.jpg"},
     {
     "idFood":4,
@@ -26,5 +29,6 @@
     "valueFood":450,
     "descFood":"C/ alcohol",
     "stockFood":5,
+    "completeDesc":"Una hamburguesa es un sándwich hecho a base de carne molida o de origen vegetal,​ aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse.",
     "img": "https://media.gq.com.mx/photos/5e53f6b69f7827000899f887/3:4/w_1932,h_2576,c_limit/lista-de-bebidas-alcoholicas-por-nivel-de-porcentaje-de-alcohol-dos.jpg"}
 ]

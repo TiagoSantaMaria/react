@@ -1,8 +1,15 @@
 import React, { useState, useEffect, setIsLoading } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetailConteiner from '../../components/ItemDetailConteiner/ItemDetailConteiner';
+import './CharacterDetail.css'
+
 
 const CharacterDetail = () => {
+  //NOTIFICACION ADD CARRITO
+  const onAdd = (quantify) =>{
+    alert(`Se agregaron ${quantify}`);
+  }
+
   const [food, setFood] = useState([]);
   let {id} = useParams();
   
@@ -28,7 +35,7 @@ const CharacterDetail = () => {
 
   return (
     food.map((food) =>
-          <div key={food.idFood}>
+          <div key={food.idFood} className = 'acomodo'>
             {
             <ItemDetailConteiner
               name={food.nameFood}
@@ -37,6 +44,8 @@ const CharacterDetail = () => {
               value={food.valueFood}
               img={food.img}
               idFood={food.idFood}
+              completeDesc={food.completeDesc}
+              onAdd={onAdd}
             />
             }
           </div>
