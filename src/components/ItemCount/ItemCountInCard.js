@@ -1,34 +1,11 @@
-import React, { useState } from 'react'
+import React, {  } from 'react'
 import IconButton from '@mui/material/IconButton';
 import { ButtonGroup, Button  } from '@mui/material';
 import './ItemCountInCard.css'
 
 
-const ItemCountInCard = ({stockFood, onAdd}) => {
-  const [counter, setCounter] = useState(0);
+const ItemCountInCard = ({counter,agregarCantidad,handlerCounterUp,handlerCounterDown, stockFood, onAdd}) => {
 
-  const [stock, setStock] = useState(stockFood);
-
-  const agregarCantidad = () => {
-    if(counter>0){
-      onAdd(counter);
-      setCounter(0);
-    }
-    
-  }
-
-  const handlerCounterUp = () =>{
-    if (stock > 0){
-      setCounter(counter + 1);
-      setStock(stock - 1);
-    }
-  }
-  const handlerCounterDown = () =>{
-    if (counter>0 && stock<=10){
-      setCounter(counter - 1);
-      setStock(stock + 1);
-    }
-  }
   return (
     <div>
       <div className='acomodoCard'> 

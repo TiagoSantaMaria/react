@@ -10,6 +10,7 @@ const CharacterDetail = () => {
     alert(`Se agregaron ${quantify}`);
   }
   const [food, setFood] = useState([]);
+  
   let {id} = useParams();
 
   //PETICION A API

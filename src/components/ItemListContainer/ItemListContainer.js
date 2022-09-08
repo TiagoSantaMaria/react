@@ -29,14 +29,11 @@ const ItemListContainer = () => {
     }
   },[])
 
-
-
-
   return (
     <div className='divPadre'>
       <div className='divHijo'>
         {
-          isLoading ? <LoadingComp/> :<ItemList foodsArray={foods} onAdd={onAdd}/> 
+          isLoading ? <LoadingComp/> : <ItemList foodsArray={foods} onAdd={onAdd}/> 
         }
       </div>
     </div>
