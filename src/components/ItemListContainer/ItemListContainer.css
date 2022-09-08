@@ -1,12 +1,17 @@
 .divPadre{
     width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .divHijo{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 30px;
+    width: 72vw;
 }
 .sacarEstilo{
     text-decoration: none;

@@ -25,6 +25,22 @@
     "img": "https://es.cravingsjournal.com/wp-content/uploads/2021/09/ravioles-de-ricotta-y-espinaca-internet-3.jpg"},
     {
     "idFood":4,
+    "nameFood":"Asado",
+    "valueFood":1200,
+    "descFood":"Tipica comida Argentina",
+    "stockFood":2,
+    "completeDesc":"Una hamburguesa es un sándwich hecho a base de carne molida o de origen vegetal,​ aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse.",
+    "img": "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXNhZG98ZW58MHx8MHx8&w=1000&q=80"},
+    {
+    "idFood":5,
+    "nameFood":"Pollo Frito",
+    "valueFood":730,
+    "descFood":"C papas",
+    "stockFood":2,
+    "completeDesc":"Una hamburguesa es un sándwich hecho a base de carne molida o de origen vegetal,​ aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse.",
+    "img": "https://i.pinimg.com/originals/79/1d/5e/791d5ea7f67d8ea0912d3a3415e18d25.jpg"},
+    {
+    "idFood":6,
     "nameFood":"Bebidas",
     "valueFood":450,
     "descFood":"C/ alcohol",

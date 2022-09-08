@@ -1,4 +1,4 @@
-import React, { useState, useEffect, setIsLoading } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetailConteiner from '../../components/ItemDetailConteiner/ItemDetailConteiner';
 import './CharacterDetail.css'
@@ -9,10 +9,9 @@ const CharacterDetail = () => {
   const onAdd = (quantify) =>{
     alert(`Se agregaron ${quantify}`);
   }
-
   const [food, setFood] = useState([]);
   let {id} = useParams();
-  
+
   //PETICION A API
   useEffect(() => {
     try{
@@ -22,11 +21,6 @@ const CharacterDetail = () => {
         let foodFilterById = food.filter(food=>food.idFood === parseInt(id));
         setFood(foodFilterById)
       });
-      setTimeout(()=>{
-        console.log(food);
-        console.log(id);
-        setIsLoading(false);
-      },2000)
     }catch (error) {
       console.log("error")
     }
