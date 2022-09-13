@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState, useContext } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,28 +9,32 @@ import ItemCountInCard from '../ItemCount/ItemCountInCard';
 import '../Item/Item.css'
 import { Link } from 'react-router-dom';
 
+//CONTEXT COUNTER
+import { CounterContext } from '../Context/CounterContext';
 
 const Item = ({name, img, desc, stock, onAdd, value, idFood, orderFood, foodsArray}) => {
+  
+  //CONTEXT COUNTER
+  const [generalCounter, setGeneralCounter] = useContext(CounterContext);
+  
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
   const [stockFood, setStock] = useState(stock);
   const [isAddCart, setIsAddCart] = useState(false);
   const [food, setFood] = useState(); 
-  
+
+
   const agregarCantidad = () => {
     if(counter>0){
+      console.log(counter);
+      setGeneralCounter(generalCounter+counter);
+      console.log(generalCounter+counter);
       onAdd(counter);
       setCounter(0);
       setIsAddCart(true);
-      console.log(idFood);
-      console.log(foodsArray[2].idFood)
       setFood(foodsArray.find(food => food.idFood === idFood));
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
-      console.log(comidaencontrada);
-      console.log(food);
       orderFood.push(comidaencontrada);
-      console.log(orderFood);
-      
     }
   }
   const handlerCounterUp = () =>{
