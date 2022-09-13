@@ -57,7 +57,6 @@ const NavBarr = ({img}) => {
                                 <Link className='linksReact' to = {`/foodmenu`}> <Tab label="Carta"/> </Link>
                                 {/* <Tab label="Reserva"/>
                                 <Tab label="Ayuda"/> */}
-                                
                               </Tabs>
                               <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
                                 <ItemCountInNavBar

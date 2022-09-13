@@ -4,13 +4,13 @@ import './FoodMenu.css'
 //COMPONENT
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer'
 
-
-const FoodMenu = () => {
+const FoodMenu = ({orderFood}) => {
   return (
-    <div className='acomodo'>
-        <ItemListContainer/>
+    <div>
+      <div className='acomodo'>
+        <ItemListContainer orderFood={orderFood}/>
+      </div>
     </div>
-    
   )
 }
 

@@ -18,6 +18,7 @@ const ItemDetailConteiner = ({name, img, desc, stock, onAdd, value, idFood, comp
       onAdd(counter);
       setCounter(0);
       setIsAddCart(true);
+      console.log(idFood)
     }
   }
   const handlerCounterUp = () =>{

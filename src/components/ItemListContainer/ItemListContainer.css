@@ -16,3 +16,8 @@
 .sacarEstilo{
     text-decoration: none;
 }
+.acomodoBoton{
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+}

@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
 import LoadingComp from '../LoadingComp/LoadingComp'
 import '../ItemListContainer/ItemListContainer.css'
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 
-const ItemListContainer = () => {
+
+
+const ItemListContainer = ({orderFood}) => {
   //NOTIFICACION ADD CARRITO
   const onAdd = (quantify) =>{
     alert(`Se agregaron ${quantify}`);
@@ -29,14 +33,20 @@ const ItemListContainer = () => {
     }
   },[])
 
+
+
   return (
-    <div className='divPadre'>
-      <div className='divHijo'>
+      <div className='divPadre'>
         {
-          isLoading ? <LoadingComp/> : <ItemList foodsArray={foods} onAdd={onAdd}/> 
+          isLoading ? 
+          <LoadingComp/>
+          :
+          <div className='divHijo'>
+            <ItemList foodsArray={foods} onAdd={onAdd} orderFood={orderFood}/>
+            <Link className='linksReact' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>TERMINAR COMPRA</Button></Link>
+          </div>
         }
       </div>
-    </div>
   )
 }
 

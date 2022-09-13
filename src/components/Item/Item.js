@@ -9,17 +9,27 @@ import '../Item/Item.css'
 import { Link } from 'react-router-dom';
 
 
-const Item = ({name, img, desc, stock, onAdd, value, idFood}) => {
+const Item = ({name, img, desc, stock, onAdd, value, idFood, orderFood, foodsArray}) => {
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
   const [stockFood, setStock] = useState(stock);
   const [isAddCart, setIsAddCart] = useState(false);
+  const [food, setFood] = useState(); 
   
   const agregarCantidad = () => {
     if(counter>0){
       onAdd(counter);
       setCounter(0);
       setIsAddCart(true);
+      console.log(idFood);
+      console.log(foodsArray[2].idFood)
+      setFood(foodsArray.find(food => food.idFood === idFood));
+      const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
+      console.log(comidaencontrada);
+      console.log(food);
+      orderFood.push(comidaencontrada);
+      console.log(orderFood);
+      
     }
   }
   const handlerCounterUp = () =>{
@@ -66,7 +76,6 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood}) => {
           </Typography>
         </CardContent>
         <CardContent sx={{height:38, bgcolor:'#f3e5f5'}}>
-          {/* //ACA PONER BOTON DE IR AL CARRITO */}
         </CardContent>        
       </Card>
     :
