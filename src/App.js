@@ -16,24 +16,27 @@ import Cart from './views/Cart/Cart'
 // CONTEXT
 import { ItemsProvider } from './components/Context/ItemsContext';
 import { CounterProvider } from './components/Context/CounterContext';
+import { OrderFoodProvider } from './components/Context/OrderFoodContext';
+
+
 
 
 
 function App() {
-    // Declaracion PEDIDO CLIENTE
-    const orderFood = []
   return (
     <Router>
       <ItemsProvider>
-        <CounterProvider>
-          <NavBar img={Logo}/>
-          <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/foodmenu' element={<FoodMenu orderFood={orderFood}/>} />
-            <Route path='/detail/:id' element={<CharacterDetail/>} />
-            <Route path='/cart' element={<Cart orderFood={orderFood}/>} />
-          </Routes>
-        </CounterProvider>
+        <OrderFoodProvider>
+          <CounterProvider>
+            <NavBar img={Logo}/>
+            <Routes>
+              <Route path='/' element={<Home/>} />
+              <Route path='/foodmenu' element={<FoodMenu/>} />
+              <Route path='/detail/:id' element={<CharacterDetail/>} />
+              <Route path='/cart' element={<Cart/>} />
+            </Routes>
+          </CounterProvider>
+        </OrderFoodProvider>
       </ItemsProvider>
     </Router>
   );

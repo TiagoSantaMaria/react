@@ -8,7 +8,7 @@ import { Button } from '@mui/material';
 //CONTEXT FOOD
 import { ItemsContext } from '../Context/ItemsContext';
 
-const ItemListContainer = ({orderFood}) => {
+const ItemListContainer = () => {
   //Context
   const [foodsMenu] = useContext(ItemsContext);
   
@@ -30,7 +30,7 @@ const ItemListContainer = ({orderFood}) => {
           <LoadingComp/>
           :
           <div className='divHijo'>
-            <ItemList foodsArray={foodsMenu} onAdd={onAdd} orderFood={orderFood}/>
+            <ItemList foodsArray={foodsMenu} onAdd={onAdd}/>
             <Link className='linksReact' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>TERMINAR COMPRA</Button></Link>
           </div>
         }

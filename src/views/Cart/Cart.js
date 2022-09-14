@@ -1,7 +1,14 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react'
 import './Cart.css'
 
-const Cart = ({orderFood}) => {
+//CONTEXT COUNTER
+import { OrderFoodContext } from '../../components/Context/OrderFoodContext';
+
+const Cart = () => {
+  //CONTEXT COUNTER
+  const [orderFood, setOrderFood] = useContext(OrderFoodContext);
+
   return (
     <div>
         <div className='acomodoCart'>

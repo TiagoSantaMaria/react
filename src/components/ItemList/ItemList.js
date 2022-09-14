@@ -2,7 +2,7 @@ import React from 'react'
 import Item from '../Item/Item'
 import '../ItemList/ItemList.css'
 
-const ItemList = ({foodsArray, onAdd, orderFood}) => {
+const ItemList = ({foodsArray, onAdd}) => {
 
 
   return (
@@ -17,7 +17,6 @@ const ItemList = ({foodsArray, onAdd, orderFood}) => {
               img={food.img}
               onAdd={onAdd}
               idFood={food.idFood}
-              orderFood={orderFood}
               foodsArray={foodsArray}
             />
             }

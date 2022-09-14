@@ -11,12 +11,17 @@ import { Link } from 'react-router-dom';
 
 //CONTEXT COUNTER
 import { CounterContext } from '../Context/CounterContext';
+import { OrderFoodContext } from '../Context/OrderFoodContext';
 
-const Item = ({name, img, desc, stock, onAdd, value, idFood, orderFood, foodsArray}) => {
+
+
+const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
   
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
-  
+  const [orderFood, setOrderFood] = useContext(OrderFoodContext);
+
+
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
   const [stockFood, setStock] = useState(stock);
@@ -26,15 +31,14 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, orderFood, foodsArr
 
   const agregarCantidad = () => {
     if(counter>0){
-      console.log(counter);
       setGeneralCounter(generalCounter+counter);
-      console.log(generalCounter+counter);
       onAdd(counter);
       setCounter(0);
       setIsAddCart(true);
       setFood(foodsArray.find(food => food.idFood === idFood));
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
       orderFood.push(comidaencontrada);
+      console.log(orderFood);
     }
   }
   const handlerCounterUp = () =>{
