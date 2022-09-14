@@ -33,12 +33,15 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
     if(counter>0){
       setGeneralCounter(generalCounter+counter);
       onAdd(counter);
-      setCounter(0);
-      setIsAddCart(true);
       setFood(foodsArray.find(food => food.idFood === idFood));
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
-      orderFood.push(comidaencontrada);
-      console.log(orderFood);
+      if (comidaencontrada.quantityFood === 0){
+        comidaencontrada.quantityFood = counter;
+        orderFood.push(comidaencontrada);
+      } else{
+        comidaencontrada.quantityFood = comidaencontrada.quantityFood + counter;
+      }
+      setCounter(0);
     }
   }
   const handlerCounterUp = () =>{

@@ -1,6 +1,19 @@
-.acomodoCart{
+.divPadre{
+    margin-top: 80px;
     width: 100vw;
-    margin-top: 200px;
-    text-align: center;
-    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.divHijo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    width: 72vw;
+}
+.divBebe{
+    margin: 7px;
 }

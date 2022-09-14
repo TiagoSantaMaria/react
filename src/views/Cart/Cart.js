@@ -4,19 +4,34 @@ import './Cart.css'
 
 //CONTEXT COUNTER
 import { OrderFoodContext } from '../../components/Context/OrderFoodContext';
+import Item from '../../components/Item/Item';
+import ItemInCart from '../../components/ItemInCart/ItemInCart'
 
 const Cart = () => {
   //CONTEXT COUNTER
   const [orderFood, setOrderFood] = useContext(OrderFoodContext);
 
   return (
-    <div>
-        <div className='acomodoCart'>
-            <p>Estas en el CARRITO - VER EN CONSOLA QUE SE GUARDARON LOS PRODUCTOS AGREGADOS AL CARRITO</p>
-        </div>
-        {
-          console.log(orderFood)
+    <div className='divPadre'>
+      <div className='divHijo'>
+      {
+      orderFood.map((food) =>
+          <div key={food.idFood} className='divBebe'>
+            {
+            <ItemInCart
+              food={food}
+              name={food.nameFood}
+              desc={food.descFood}
+              stock={food.stockFood}
+              value={food.valueFood}
+              img={food.img}
+              idFood={food.idFood}
+            />
+            }
+          </div>
+            )
         }
+      </div>
     </div>
   )
 }
