@@ -37,10 +37,12 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
       if (comidaencontrada.quantityFood === 0){
         comidaencontrada.quantityFood = counter;
+
         orderFood.push(comidaencontrada);
       } else{
         comidaencontrada.quantityFood = comidaencontrada.quantityFood + counter;
       }
+      comidaencontrada.stockFood = comidaencontrada.stockFood - comidaencontrada.quantityFood;
       setCounter(0);
     }
   }
