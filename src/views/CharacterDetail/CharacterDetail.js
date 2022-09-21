@@ -1,50 +1,45 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+import { Button } from '@mui/material';
+import React, { useContext } from 'react'
+import { Link, useParams } from 'react-router-dom';
+
 import ItemDetailConteiner from '../../components/ItemDetailConteiner/ItemDetailConteiner';
 import './CharacterDetail.css'
 
 
+//CONTEXT FOOD
+import { ItemsContext } from '../../components/Context/ItemsContext';
+
 const CharacterDetail = () => {
+  //Context
+  const [foodsMenu] = useContext(ItemsContext);
+  
   //NOTIFICACION ADD CARRITO
   const onAdd = (quantify) =>{
     alert(`Se agregaron ${quantify}`);
   }
-  const [food, setFood] = useState([]);
   
   let {id} = useParams();
-
-  //PETICION A API
-  useEffect(() => {
-    try{
-      fetch(`../json/productos.json`)
-      .then((response) => response.json())
-      .then((food) => {
-        let foodFilterById = food.filter(food=>food.idFood === parseInt(id));
-        setFood(foodFilterById)
-      });
-    }catch (error) {
-      console.log("error")
-    }
-  },[id])
-
+  console.log(id);
 
   return (
-    food.map((food) =>
-          <div key={food.idFood} className = 'acomodo'>
-            {
-            <ItemDetailConteiner
-              name={food.nameFood}
-              desc={food.descFood}
-              stock={food.stockFood}
-              value={food.valueFood}
-              img={food.img}
-              idFood={food.idFood}
-              completeDesc={food.completeDesc}
-              onAdd={onAdd}
-            />
-            }
-          </div>
-            )
+    <div className='acomodoComponent'>
+      <div key={foodsMenu[id-1].idFood} className = 'acomodo'>
+        {
+        <ItemDetailConteiner
+          name={foodsMenu[id-1].nameFood}
+          desc={foodsMenu[id-1].descFood}
+          stock={foodsMenu[id-1].stockFood}
+          value={foodsMenu[id-1].valueFood}
+          img={foodsMenu[id-1].img}
+          idFood={foodsMenu[id-1].idFood}
+          completeDesc={foodsMenu[id-1].completeDesc}
+          onAdd={onAdd}
+          foodsArray={foodsMenu}
+        />
+        }
+      </div>
+    </div>
   )
 }
 

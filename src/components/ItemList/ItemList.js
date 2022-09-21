@@ -3,8 +3,6 @@ import Item from '../Item/Item'
 import '../ItemList/ItemList.css'
 
 const ItemList = ({foodsArray, onAdd}) => {
-
-
   return (
         foodsArray.map((food) =>
           <div key={food.idFood}>
