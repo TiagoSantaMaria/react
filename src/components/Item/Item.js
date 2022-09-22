@@ -53,7 +53,7 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
     }
   }
   const handlerCounterDown = () =>{
-    if (counter>0 && stockFood<=10){
+    if ((counter>0 && stockFood<=10)){
       setCounter(counter - 1);
       setStock(stockFood + 1);
     }

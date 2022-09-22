@@ -6,10 +6,19 @@ import { Link } from 'react-router-dom';
 //CSS
 import './NavBar.css'
 
+
+
+
+
 const NavBarr = ({img}) => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
   
+  const [value, setValue] = React.useState(2);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
         <React.Fragment>
             <AppBar sx={{background:"white", color:"black"}}>
@@ -41,8 +50,10 @@ const NavBarr = ({img}) => {
                             </>
                           ):(
                             <>
+                            <div className='navBar'>
+                              <div className='logoNavBar'>
                               <Tabs textColor="" sx={{marginLeft:""}}>
-                                <Link className='linksReact' to = {`/`}>
+                                <Link className='' to = {`/`}>
                                   <CardMedia sx={{width:175}}
                                     component="img"
                                     height="70"
@@ -52,17 +63,25 @@ const NavBarr = ({img}) => {
                                   />
                                 </Link> 
                               </Tabs>
-                              <Tabs textColor="" sx={{marginLeft:"auto"}}>
-                                <Link className='linksReact' to = {`/`}> <Tab label="Inicio"/> </Link>
-                                <Link className='linksReact' to = {`/foodmenu`}> <Tab label="Carta"/> </Link>
-                                {/* <Tab label="Reserva"/>
-                                <Tab label="Ayuda"/> */}
-                              </Tabs>
-                              <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
+                              </div>
+                              <div className='LinksPagesNavBar'>
+                                <Tabs>
+                                  <Link className='linksReact ' to = {`/`}> <Tab label="Inicio" className=''/> </Link>
+                                  <Link className='linksReact' to = {`/foodmenu`}> <Tab label="Carta"/> </Link>
+                                  {/* <Tab label="Reserva"/>
+                                  <Tab label="Ayuda"/> */}
+                                </Tabs>
+                              </div>
+                              <div className='CountNavBar'>
+                                <Link className='linksReact' to = {`/cart`}>
+                                <Button sx={{marginLeft:"auto", background:"#004346"}} variant="contained">
                                 <ItemCountInNavBar
                                 counter="-"
                                 />
-                              </Button>
+                                </Button>
+                                </Link>
+                              </div>
+                              </div>
                             </>
                           )
                         }

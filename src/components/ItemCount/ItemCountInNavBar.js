@@ -12,3 +12,5 @@ const ItemCountInNavBar = ({counter}) => {
 }
 
 export default ItemCountInNavBar
+
+

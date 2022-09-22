@@ -1,6 +1,29 @@
 .linksReact{
     text-decoration: none;
     color: rgb(0, 0, 0);
-    font-weight: 800;
-    font-weight: 900;
+    font-weight: 2900;
+}
+.tabActivo{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: 2900;
+}
+.linksReact:hover{
+    background-color: rgba(128, 128, 128, 0.295);
+    border-radius: 28px;
+}
+.navBar{
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 1fr;
+}
+
+.LinksPagesNavBar{
+    justify-content: center;
+    grid-column: 6/7;
+}
+
+.CountNavBar{
+    grid-column: 12/13;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 //LIBRERIA MUI
 import Card from '@mui/material/Card';
@@ -37,30 +38,39 @@ export default function ItemInCart({food}) {
     }
   }
   const handlerCounterUp = () =>{
-    if ((food.stockFood) > 0){
+    if (food.stockFood > 0){
       setCounter(counter + 1);
       food.stockFood = food.stockFood - 1; 
     }
   }
   const handlerCounterDown = () =>{
-    if (counter>0 && food.stockFood<=10){
+    if ((counter>0)) {
       setCounter(counter - 1);
       food.stockFood = food.stockFood + 1;
     }
   }
   const deleteItem = () =>{
-    const newOrder = orderFood.filter(wantFood => wantFood.idFood !== food.idFood);
-    setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
-    console.log(orderFood);
-    console.log(newOrder);
-    console.log(newOrder.length);
-    if (newOrder.length === 2){
+    if(food.quantityFood > 0){
+      food.quantityFood = food.quantityFood - 1;
+      food.stockFood = food.stockFood + 1;
+      console.log(food.stockFood);
+      console.log(food.quantityFood);
       console.log("HOLA");
-      setCartEmpty(true);
     }
-    console.log(orderFood.length);
-    console.log(cartEmpty);
   }
+
+    // const newOrder = orderFood.filter(wantFood => wantFood.idFood !== food.idFood);
+    // setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
+    // console.log(orderFood);
+    // console.log(newOrder);
+    // console.log(newOrder.length);
+    // if (newOrder.length === 2){
+    //   console.log("HOLA");
+    //   setCartEmpty(true);
+    // }
+    // console.log(orderFood.length);
+    // console.log(cartEmpty);
+  
 
   return (
     cartEmpty
@@ -88,13 +98,13 @@ export default function ItemInCart({food}) {
         <Typography variant="body2" color="">
           Precio: {food.quantityFood * food.valueFood}
         </Typography>
-        <Button onClick={deleteItem}><DeleteIcon/></Button>
         <ItemCountInCard
           counter={counter}
           setCounter={setCounter}
           agregarCantidad={agregarCantidad}
           handlerCounterUp={handlerCounterUp}
           handlerCounterDown={handlerCounterDown}
+          deleteItem={deleteItem}
           />
       </CardContent>
     </CardActionArea>
