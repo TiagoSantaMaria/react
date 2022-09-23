@@ -20,12 +20,6 @@ const Cart = () => {
             {
             <ItemInCart
               food={food}
-              name={food.nameFood}
-              desc={food.descFood}
-              stock={food.stockFood}
-              value={food.valueFood}
-              img={food.img}
-              idFood={food.idFood}
             />
             }
           </div>

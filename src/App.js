@@ -19,9 +19,6 @@ import { CounterProvider } from './components/Context/CounterContext';
 import { OrderFoodProvider } from './components/Context/OrderFoodContext';
 
 
-
-
-
 function App() {
   return (
     <Router>

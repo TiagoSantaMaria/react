@@ -24,6 +24,7 @@ export default function ItemInCart({food}) {
 
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
   const [cartEmpty, setCartEmpty] = useState(false);
+  let foodInCart = true;
 
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
@@ -44,21 +45,22 @@ export default function ItemInCart({food}) {
     }
   }
   const handlerCounterDown = () =>{
-    if ((counter>0)) {
+    if (counter>0) {
       setCounter(counter - 1);
       food.stockFood = food.stockFood + 1;
     }
   }
-  const deleteItem = () =>{
-    if(food.quantityFood > 0){
+  const handlerDeleteItem = () =>{
+    if (food.quantityFood > 0){
       food.quantityFood = food.quantityFood - 1;
       food.stockFood = food.stockFood + 1;
-      console.log(food.stockFood);
-      console.log(food.quantityFood);
+      setGeneralCounter(generalCounter-1);
       console.log("HOLA");
+      if (food.quantityFood === 0){
+        setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
+      }
     }
   }
-
     // const newOrder = orderFood.filter(wantFood => wantFood.idFood !== food.idFood);
     // setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
     // console.log(orderFood);
@@ -71,9 +73,8 @@ export default function ItemInCart({food}) {
     // console.log(orderFood.length);
     // console.log(cartEmpty);
   
-
   return (
-    cartEmpty
+    generalCounter === 0
     ?
       console.log("CARRO VACIO")
     :
@@ -104,7 +105,8 @@ export default function ItemInCart({food}) {
           agregarCantidad={agregarCantidad}
           handlerCounterUp={handlerCounterUp}
           handlerCounterDown={handlerCounterDown}
-          deleteItem={deleteItem}
+          deleteItem={handlerDeleteItem}
+          foodInCart={foodInCart}
           />
       </CardContent>
     </CardActionArea>
