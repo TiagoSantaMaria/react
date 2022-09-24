@@ -35,6 +35,17 @@ export default function ItemInCart({food}) {
     if(counter>0){
       setGeneralCounter(generalCounter+counter);
       food.quantityFood = food.quantityFood + counter;
+      let i=0
+      orderFood.forEach(function(){
+        console.log(i);
+        console.log(orderFood[i].quantityFood);
+        if (orderFood[i].nameFood === food.nameFood){
+          console.log("LO ENCONTRO");
+          orderFood[i].quantityFood = food.quantityFood;
+          console.log(orderFood[i].quantityFood);
+        }
+        i++;
+      });
       setCounter(0);
     }
   }
@@ -58,21 +69,11 @@ export default function ItemInCart({food}) {
       console.log("HOLA");
       if (food.quantityFood === 0){
         setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
+        console.log()
       }
     }
   }
-    // const newOrder = orderFood.filter(wantFood => wantFood.idFood !== food.idFood);
-    // setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
-    // console.log(orderFood);
-    // console.log(newOrder);
-    // console.log(newOrder.length);
-    // if (newOrder.length === 2){
-    //   console.log("HOLA");
-    //   setCartEmpty(true);
-    // }
-    // console.log(orderFood.length);
-    // console.log(cartEmpty);
-  
+    
   return (
     generalCounter === 0
     ?

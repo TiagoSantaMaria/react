@@ -21,7 +21,6 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
   const [orderFood, setOrderFood] = useContext(OrderFoodContext);
 
-  let foodInCart = false;
 
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
@@ -128,7 +127,6 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
             handlerCounterUp={handlerCounterUp}
             handlerCounterDown={handlerCounterDown}
             onAdd={onAdd}
-            foodInCart={foodInCart}
           />  
         </CardContent>        
       </Card>

@@ -6,25 +6,29 @@ import './Cart.css'
 import { OrderFoodContext } from '../../components/Context/OrderFoodContext';
 import Item from '../../components/Item/Item';
 import ItemInCart from '../../components/ItemInCart/ItemInCart'
+import PriceTotal from '../../components/PriceTotal/PriceTotal';
 
 const Cart = () => {
-  //CONTEXT COUNTER
-  const [orderFood, setOrderFood] = useContext(OrderFoodContext);
+  //CONTEXT Food
+  const [orderFood, setOrderFood, precio] = useContext(OrderFoodContext);
 
   return (
     <div className='divPadre'>
       <div className='divHijo'>
       {
-      orderFood.map((food) =>
+        orderFood.map((food) =>
           <div key={food.idFood} className='divBebe'>
-            {
+          {
             <ItemInCart
               food={food}
             />
-            }
+          }
           </div>
-            )
-        }
+        )
+      }
+
+      <PriceTotal/>
+      
       </div>
     </div>
   )
