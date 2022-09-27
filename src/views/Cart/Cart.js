@@ -4,13 +4,15 @@ import './Cart.css'
 
 //CONTEXT COUNTER
 import { OrderFoodContext } from '../../components/Context/OrderFoodContext';
+
 import Item from '../../components/Item/Item';
 import ItemInCart from '../../components/ItemInCart/ItemInCart'
 import PriceTotal from '../../components/PriceTotal/PriceTotal';
 
+
 const Cart = () => {
-  //CONTEXT Food
-  const [orderFood, setOrderFood, precio] = useContext(OrderFoodContext);
+  //CONTEXT ORDERFOOD
+  const [orderFood, setOrderFood, priceTotal, setPriceTotal] = useContext(OrderFoodContext);
 
   return (
     <div className='divPadre'>
@@ -26,9 +28,11 @@ const Cart = () => {
           </div>
         )
       }
-
-      <PriceTotal/>
-      
+        <PriceTotal
+          orderFood={orderFood}
+          priceTotal={priceTotal}
+          setPriceTotal={setPriceTotal}
+        />
       </div>
     </div>
   )

@@ -31,7 +31,7 @@ const ItemListContainer = () => {
           :
           <div className='divHijo'>
             <ItemList foodsArray={foodsMenu} onAdd={onAdd}/>
-            <Link className='linksReact' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>TERMINAR COMPRA</Button></Link>
+            <Link className='linksReact' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>IR A CARRITO</Button></Link>
           </div>
         }
       </div>

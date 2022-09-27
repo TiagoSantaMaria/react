@@ -19,6 +19,7 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
   
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
+  //CONTEXT ORDERFOOD AND PRICE
   const [orderFood, setOrderFood] = useContext(OrderFoodContext);
 
 
@@ -37,7 +38,6 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
       if (comidaencontrada.quantityFood === 0){
         comidaencontrada.quantityFood = counter;
-
         orderFood.push(comidaencontrada);
       } else{
         comidaencontrada.quantityFood = comidaencontrada.quantityFood + counter;
