@@ -23,6 +23,10 @@ const Cart = () => {
           {
             <ItemInCart
               food={food}
+              orderFood={orderFood}
+              setOrderFood={setOrderFood}
+              priceTotal={priceTotal}
+              setPriceTotal={setPriceTotal}
             />
           }
           </div>

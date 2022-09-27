@@ -20,20 +20,27 @@ import { OrderFoodContext } from '../Context/OrderFoodContext';
 
 
 
-export default function ItemInCart({food}) {
-
+export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, setPriceTotal}) {
+  //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
+  
+  //PARA CONTROL DE CARRITO VACIO (TODAVIA NO FUNCIONA)
   const [cartEmpty, setCartEmpty] = useState(false);
   let foodInCart = true;
 
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
-  const [orderFood, setOrderFood] = useContext(OrderFoodContext);
+
 
   // FUNCIONES DE MANEJO DE CANTIDADES
+
+  let priceAcum = priceTotal;
+
   const agregarCantidad = () => {
     if(counter>0){
       setGeneralCounter(generalCounter+counter);
+      priceAcum = priceAcum + food.quantityFood * food.valueFood;
+      setPriceTotal(priceAcum);
       food.quantityFood = food.quantityFood + counter;
       let i=0
       orderFood.forEach(function(){
@@ -67,6 +74,8 @@ export default function ItemInCart({food}) {
       food.stockFood = food.stockFood + 1;
       setGeneralCounter(generalCounter-1);
       console.log("HOLA");
+      priceAcum = priceAcum - food.quantityFood * food.valueFood;
+      setPriceTotal(priceAcum);
       if (food.quantityFood === 0){
         setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
         console.log()
