@@ -1,5 +1,7 @@
 import React from 'react'
+//COMPONENT
 import Item from '../Item/Item'
+//CSS
 import '../ItemList/ItemList.css'
 
 const ItemList = ({foodsArray, onAdd}) => {

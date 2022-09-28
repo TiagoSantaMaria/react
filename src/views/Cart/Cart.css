@@ -17,3 +17,18 @@
 .divBebe{
     margin: 7px;
 }
+
+.centrar{
+    font-weight: 650;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.centrar button{
+    margin-right: 30px;
+}
+.centrar img{
+    width: 300px;
+}
