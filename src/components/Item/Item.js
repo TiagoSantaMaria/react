@@ -28,13 +28,15 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
   //CONTEXT ORDERFOOD AND PRICE
-  const [orderFood, setOrderFood] = useContext(OrderFoodContext);
+  const [orderFood, setOrderFood, priceTotal, setPriceTotal] = useContext(OrderFoodContext);
 
 
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
   const [stockFood, setStock] = useState(stock);
   const [isAddCart, setIsAddCart] = useState(false);
+
+  let priceAcum = 0;
 
 
   const agregarCantidad = () => {
@@ -48,6 +50,8 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
       } else{
         comidaencontrada.quantityFood = comidaencontrada.quantityFood + counter;
       }
+      priceAcum = priceAcum + comidaencontrada.quantityFood * comidaencontrada.valueFood;
+      setPriceTotal(priceAcum);
       comidaencontrada.stockFood = comidaencontrada.stockFood - counter;
       setCounter(0);
     }
