@@ -3,6 +3,7 @@ import './App.css';
 //COMPONENTS
 import Logo from './assets/images/logoSession.png'
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 
 // REACT ROUTER DOM
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -26,12 +27,13 @@ function App() {
         <OrderFoodProvider>
           <CounterProvider>
             <NavBar img={Logo}/>
-            <Routes>
-              <Route path='/' element={<Home/>} />
-              <Route path='/foodmenu' element={<FoodMenu/>} />
-              <Route path='/detail/:id' element={<CharacterDetail/>} />
-              <Route path='/cart' element={<Cart/>} />
-            </Routes>
+              <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/foodmenu' element={<FoodMenu/>} />
+                <Route path='/detail/:id' element={<CharacterDetail/>} />
+                <Route path='/cart' element={<Cart/>} />
+              </Routes>
+            <Footer/>
           </CounterProvider>
         </OrderFoodProvider>
       </ItemsProvider>

@@ -9,7 +9,9 @@ import './CharacterDetail.css'
 
 const CharacterDetail = () => {
   return (
-    <ItemDetailConteiner/>
+    <div className='fondoCharacterDetail'>
+      <ItemDetailConteiner/>
+    </div>
   )
 }
 

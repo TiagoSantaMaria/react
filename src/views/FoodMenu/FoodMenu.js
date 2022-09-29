@@ -6,7 +6,7 @@ import ItemListContainer from '../../components/ItemListContainer/ItemListContai
 
 const FoodMenu = () => {
   return (
-    <div>
+    <div className='fondoCarta'>
       <div className='acomodo'>
         <ItemListContainer/>
       </div>

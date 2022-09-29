@@ -1,3 +1,10 @@
+.fondoCarta{
+    display: flex;
+    min-height: 100vh;
+    background: url('../../assets/images/fondoCarta.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
 .acomodo{
     margin-top: 100px;
 }

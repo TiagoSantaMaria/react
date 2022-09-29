@@ -1,5 +1,11 @@
-
+.fondoCharacterDetail{
+    display: flex;
+    min-height: 100vh;
+    background: url('../../assets/images/fondoCarta.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
 .acomodo{
+    margin-bottom: 40px;
     width: 100vw;
     display: flex;
     justify-content: center;

@@ -1,13 +1,26 @@
 .acomodoGeneral{
-    width: 100vw;
-    height: max-content;
     display: flex;
     background-color: black;
-    
 }
 .acomodoImagenes{
-    margin-top: ;
     height: 650px;
-    width: 33.182vw;
+    width: 33.33vw;
     border: solid 1px gray;
+}
+
+
+.descripcionLocal{
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    font-size: 35px;
+    font-weight: 800;
+}
+.descripcion{
+    width: 80vw;
 }
