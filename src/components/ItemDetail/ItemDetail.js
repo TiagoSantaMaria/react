@@ -23,7 +23,13 @@ import { CounterContext } from '../Context/CounterContext';
 import { OrderFoodContext } from '../Context/OrderFoodContext';
 
 
-const ItemDetail = ({name, img, desc, stock, onAdd, value, idFood, completeDesc, foodsArray}) => {
+const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsArray}) => {
+  //NOTIFICACION ADD CARRITO
+  const onAdd = (quantify) =>{
+    alert(`Se agregaron ${quantify}`);
+  }
+
+
   //CONTEXT 
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
   const [orderFood, setOrderFood] = useContext(OrderFoodContext);

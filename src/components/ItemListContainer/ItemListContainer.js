@@ -22,11 +22,6 @@ const ItemListContainer = () => {
     setIsLoading(false);
   },2000)
 
-  //NOTIFICACION ADD CARRITO
-  const onAdd = (quantify) =>{
-    alert(`Se agregaron ${quantify}`);
-  }
-
   return (
       <div className='divPadre'>
         {
@@ -34,7 +29,7 @@ const ItemListContainer = () => {
           <LoadingComp/>
           :
           <div className='divHijo'>
-            <ItemList foodsArray={foodsMenu} onAdd={onAdd}/>
+            <ItemList foodsArray={foodsMenu}/>
             <Link className='linksReact' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>IR A CARRITO</Button></Link>
           </div>
         }

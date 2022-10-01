@@ -15,11 +15,6 @@ const ItemDetailConteiner = () => {
   //Context
   const [foodsMenu] = useContext(ItemsContext);
   
-  //NOTIFICACION ADD CARRITO
-  const onAdd = (quantify) =>{
-    alert(`Se agregaron ${quantify}`);
-  }
-  
   let {id} = useParams();
 
   //PARA ENCONTRAR COMIDA E INDEX EN EL ARRAY NO ORDENADO POR IDFOOD
@@ -39,7 +34,6 @@ const ItemDetailConteiner = () => {
           img={foodsMenu[index].img}
           idFood={foodsMenu[index].idFood}
           completeDesc={foodsMenu[index].completeDesc}
-          onAdd={onAdd}
           foodsArray={foodsMenu}
         />
         }

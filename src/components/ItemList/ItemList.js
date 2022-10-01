@@ -4,7 +4,7 @@ import Item from '../Item/Item'
 //CSS
 import '../ItemList/ItemList.css'
 
-const ItemList = ({foodsArray, onAdd}) => {
+const ItemList = ({foodsArray}) => {
   return (
         foodsArray.map((food) =>
           <div key={food.idFood}>
@@ -15,7 +15,6 @@ const ItemList = ({foodsArray, onAdd}) => {
               stock={food.stockFood}
               value={food.valueFood}
               img={food.img}
-              onAdd={onAdd}
               idFood={food.idFood}
               foodsArray={foodsArray}
             />

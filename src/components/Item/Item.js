@@ -23,7 +23,7 @@ import { OrderFoodContext } from '../Context/OrderFoodContext';
 
 
 
-const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
+const Item = ({name, img, desc, stock, value, idFood, foodsArray}) => {
   
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
@@ -35,39 +35,6 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
   const [counter, setCounter] = useState(0);
   const [stockFood, setStock] = useState(stock);
   const [isAddCart, setIsAddCart] = useState(false);
-
-  let priceAcum = 0;
-
-
-  const agregarCantidad = () => {
-    if(counter>0){
-      setGeneralCounter(generalCounter+counter);
-      onAdd(counter);
-      const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
-      if (comidaencontrada.quantityFood === 0){
-        comidaencontrada.quantityFood = counter;
-        orderFood.push(comidaencontrada);
-      } else{
-        comidaencontrada.quantityFood = comidaencontrada.quantityFood + counter;
-      }
-      priceAcum = priceAcum + comidaencontrada.quantityFood * comidaencontrada.valueFood;
-      setPriceTotal(priceAcum);
-      comidaencontrada.stockFood = comidaencontrada.stockFood - counter;
-      setCounter(0);
-    }
-  }
-  const handlerCounterUp = () =>{
-    if (stockFood > 0){
-      setCounter(counter + 1);
-      setStock(stockFood - 1);
-    }
-  }
-  const handlerCounterDown = () =>{
-    if ((counter>0 && stockFood<=10)){
-      setCounter(counter - 1);
-      setStock(stockFood + 1);
-    }
-  }
 
   return (
     <div className='divideCard'>
@@ -83,7 +50,7 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
             />
           </CardActionArea>      
         </Link>
-        <CardContent sx={{height:70, bgcolor:'#f3e5f5'}}>
+        <CardContent sx={{height:25, bgcolor:'#f3e5f5'}}>
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
@@ -98,15 +65,6 @@ const Item = ({name, img, desc, stock, onAdd, value, idFood, foodsArray}) => {
           </Typography>
         </CardContent>
         <CardContent sx={{height:38, bgcolor:'#f3e5f5'}}>
-          <ItemCountInCard
-            counter={counter}
-            setCounter={setCounter}
-            stockFood={stockFood}
-            agregarCantidad={agregarCantidad}
-            handlerCounterUp={handlerCounterUp}
-            handlerCounterDown={handlerCounterDown}
-            onAdd={onAdd}
-          />  
         </CardContent>        
       </Card>
     }
