@@ -3,6 +3,7 @@ import './App.css';
 //COMPONENTS
 import Logo from './assets/images/logoSession.png'
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 
 // REACT ROUTER DOM
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -13,18 +14,29 @@ import FoodMenu from './views/FoodMenu/FoodMenu';
 import CharacterDetail from './views/CharacterDetail/CharacterDetail';
 import Cart from './views/Cart/Cart'
 
+// CONTEXT
+import { ItemsProvider } from './components/Context/ItemsContext';
+import { CounterProvider } from './components/Context/CounterContext';
+import { OrderFoodProvider } from './components/Context/OrderFoodContext';
+
+
 function App() {
-    // Declaracion PEDIDO CLIENTE
-    const orderFood = []
   return (
     <Router>
-      <NavBar img={Logo}/>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/foodmenu' element={<FoodMenu orderFood={orderFood}/>} />
-        <Route path='/detail/:id' element={<CharacterDetail/>} />
-        <Route path='/cart' element={<Cart orderFood={orderFood}/>} />
-      </Routes>
+      <ItemsProvider>
+        <OrderFoodProvider>
+          <CounterProvider>
+            <NavBar img={Logo}/>
+              <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/foodmenu' element={<FoodMenu/>} />
+                <Route path='/detail/:id' element={<CharacterDetail/>} />
+                <Route path='/cart' element={<Cart/>} />
+              </Routes>
+            <Footer/>
+          </CounterProvider>
+        </OrderFoodProvider>
+      </ItemsProvider>
     </Router>
   );
 }

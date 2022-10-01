@@ -1,0 +1,26 @@
+.divPadreFooter{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 120px;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 130%);
+}
+.divHorariosFooter{
+    text-align: center;
+    grid-column: 1/4;
+}
+
+.divDireccionFooter{
+    text-align: center;
+    grid-column: 5/9;
+}
+
+.divRedesFooter{
+    text-align: center;
+    width: 180px;
+    grid-column: 11/13;
+}
+.divRedesImagenFooter img{
+    width:30px;
+    margin-right: 10px;
+}

@@ -1,50 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react'
+
+//COMPONENT
 import ItemDetailConteiner from '../../components/ItemDetailConteiner/ItemDetailConteiner';
+
+//ESTILO CSS
 import './CharacterDetail.css'
 
-
 const CharacterDetail = () => {
-  //NOTIFICACION ADD CARRITO
-  const onAdd = (quantify) =>{
-    alert(`Se agregaron ${quantify}`);
-  }
-  const [food, setFood] = useState([]);
-  
-  let {id} = useParams();
-
-  //PETICION A API
-  useEffect(() => {
-    try{
-      fetch(`../json/productos.json`)
-      .then((response) => response.json())
-      .then((food) => {
-        let foodFilterById = food.filter(food=>food.idFood === parseInt(id));
-        setFood(foodFilterById)
-      });
-    }catch (error) {
-      console.log("error")
-    }
-  },[id])
-
-
   return (
-    food.map((food) =>
-          <div key={food.idFood} className = 'acomodo'>
-            {
-            <ItemDetailConteiner
-              name={food.nameFood}
-              desc={food.descFood}
-              stock={food.stockFood}
-              value={food.valueFood}
-              img={food.img}
-              idFood={food.idFood}
-              completeDesc={food.completeDesc}
-              onAdd={onAdd}
-            />
-            }
-          </div>
-            )
+    <div className='fondoCharacterDetail'>
+      <ItemDetailConteiner/>
+    </div>
   )
 }
 

@@ -1,6 +1,37 @@
-.acomodoCart{
+.divPadre{
+    margin-top: 80px;
     width: 100vw;
-    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('../../assets/images/fondoCarta.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.divHijo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    width: 72vw;
+}
+.divBebe{
+    margin: 7px;
+}
+
+.centrar{
+    font-weight: 650;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    color: black;
+    align-items: center;
+    justify-content: center;
+}
+.centrar button{
+    margin-right: 30px;
+}
+.centrar img{
+    width: 300px;
 }

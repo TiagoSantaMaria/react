@@ -1,10 +1,10 @@
 import React from 'react'
+//COMPONENT
 import Item from '../Item/Item'
+//CSS
 import '../ItemList/ItemList.css'
 
-const ItemList = ({foodsArray, onAdd, orderFood}) => {
-
-
+const ItemList = ({foodsArray, onAdd}) => {
   return (
         foodsArray.map((food) =>
           <div key={food.idFood}>
@@ -17,7 +17,6 @@ const ItemList = ({foodsArray, onAdd, orderFood}) => {
               img={food.img}
               onAdd={onAdd}
               idFood={food.idFood}
-              orderFood={orderFood}
               foodsArray={foodsArray}
             />
             }
