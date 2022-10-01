@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import ItemCountInNavBar from '../ItemCount/ItemCountInNavBar';
 import { AppBar, Typography, Toolbar, Tab, Tabs, Button, CardMedia, useMediaQuery, useTheme } from '@mui/material'

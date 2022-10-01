@@ -10,6 +10,7 @@ export const ItemsContext = createContext();
 
 // 2 - CREAR EL COMPONENTE PROVIDER (ItemsProvider)
 export const ItemsProvider = ({ children }) => {
+    
 // 3 - FIREBASE
     const [foodsMenu, setFoodsMenu] = useState([]);
     const getFoods = async() =>{

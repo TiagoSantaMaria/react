@@ -22,18 +22,23 @@ const ItemDetailConteiner = () => {
   
   let {id} = useParams();
 
+  //PARA ENCONTRAR COMIDA E INDEX EN EL ARRAY NO ORDENADO POR IDFOOD
+  // eslint-disable-next-line eqeqeq
+  const foodFind = foodsMenu.find(food => food.idFood == id);
+  const index = foodsMenu.indexOf(foodFind); 
+
   return (
     <div className='acomodoComponent'>
-      <div key={foodsMenu[id-1].idFood} className = 'acomodo'>
+      <div key={foodsMenu[index].idFood} className = 'acomodo'>
         {
         <ItemDetail
-          name={foodsMenu[id-1].nameFood}
-          desc={foodsMenu[id-1].descFood}
-          stock={foodsMenu[id-1].stockFood}
-          value={foodsMenu[id-1].valueFood}
-          img={foodsMenu[id-1].img}
-          idFood={foodsMenu[id-1].idFood}
-          completeDesc={foodsMenu[id-1].completeDesc}
+          name={foodsMenu[index].nameFood}
+          desc={foodsMenu[index].descFood}
+          stock={foodsMenu[index].stockFood}
+          value={foodsMenu[index].valueFood}
+          img={foodsMenu[index].img}
+          idFood={foodsMenu[index].idFood}
+          completeDesc={foodsMenu[index].completeDesc}
           onAdd={onAdd}
           foodsArray={foodsMenu}
         />
