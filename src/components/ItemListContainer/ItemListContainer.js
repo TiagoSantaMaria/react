@@ -4,13 +4,12 @@ import ItemList from '../ItemList/ItemList';
 import LoadingComp from '../LoadingComp/LoadingComp'
 import { Button } from '@mui/material';
 
+
 //CSS
 import '../ItemListContainer/ItemListContainer.css'
 
 //ROUTER DOM
 import { Link } from 'react-router-dom';
-
-//CONTEXT 
 import { ItemsContext } from '../Context/ItemsContext';
 
 const ItemListContainer = () => {

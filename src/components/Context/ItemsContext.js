@@ -1,22 +1,28 @@
 import React, { useState, useEffect, createContext } from 'react';
+//CONTEXT CON FIREBASE
+
+//FIREBASE
+import { collection, query, getDocs } from "firebase/firestore";
+import { db } from '../../firebase/firebaseConfig';
 
 // 1 - CREAR EL CONTEXTO
 export const ItemsContext = createContext();
 
 // 2 - CREAR EL COMPONENTE PROVIDER (ItemsProvider)
-
 export const ItemsProvider = ({ children }) => {
-// 3 - DECLARACION ARRAY FOOD DND RECUPERAMOS COMIDAS DE API
-const [foodsMenu, setFoodsMenu] = useState([]);
-// 4 - PETICION A API
-useEffect(() => {
-    try{
-    fetch('json/productos.json')
-    .then((response) => response.json())
-    .then((food) => setFoodsMenu(food));
-    }catch (error) {
-        console.log("error")
-    }
+// 3 - FIREBASE
+    const [foodsMenu, setFoodsMenu] = useState([]);
+    const getFoods = async() =>{
+    const q = query(collection(db, 'food'));
+    const docs = [];
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) =>{
+    docs.push({...doc.data()});
+    })
+    setFoodsMenu(docs);
+    };
+    useEffect(()=>{
+        getFoods()
     },[])
 
     return (
