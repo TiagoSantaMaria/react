@@ -6,10 +6,10 @@ import './FormFinishFood.css'
 const FormFinishFood = () => {
   return (
     <div className='form'>
-        <div>HOLA ME LLAMO TIAGO</div>
-        <div>HOLA ME LLAMO TIAGO</div>
-        <div>HOLA ME LLAMO TIAGO</div>
-        <div>HOLA ME LLAMO TIAGO</div>
+        <div>EN DESARROLLO</div>
+        <div>EN DESARROLLO</div>
+        <div>EN DESARROLLO</div>
+        <div>EN DESARROLLO</div>
     </div>
   )
 }
