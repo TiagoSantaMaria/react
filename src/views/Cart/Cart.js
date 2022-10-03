@@ -2,7 +2,7 @@
 import React, { useContext, useState } from 'react'
 import './Cart.css'
 
-//CONTEXT COUNTER
+//CONTEXT ORDERFOOD
 import { OrderFoodContext } from '../../components/Context/OrderFoodContext';
 
 //COMPONENT
@@ -59,7 +59,7 @@ const Cart = () => {
             setPriceTotal={setPriceTotal}
           />
           <Button onClick={finishFood} className='acomodoBotonEnItemDetail' sx={{ml:4.5, bgcolor:'#00796b', color:'white'}}>TERMINAR COMPRA</Button>
-          {terminarCompra ? <FormFinishFood/>:console.log("hola")}
+          {terminarCompra ? <FormFinishFood orderFood={orderFood}/>:console.log("hola")}
         </div>
       :
         <div className='centrar'>
