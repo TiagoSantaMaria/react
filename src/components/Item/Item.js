@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Button, CardActionArea } from '@mui/material';
 
 //COMPONENT
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
@@ -50,7 +50,7 @@ const Item = ({name, img, desc, stock, value, idFood, foodsArray}) => {
             />
           </CardActionArea>      
         </Link>
-        <CardContent sx={{height:25, bgcolor:'#f3e5f5'}}>
+        <CardContent sx={{height:65, bgcolor:'#f3e5f5'}}>
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
@@ -65,7 +65,9 @@ const Item = ({name, img, desc, stock, value, idFood, foodsArray}) => {
           </Typography>
         </CardContent>
         <CardContent sx={{height:38, bgcolor:'#f3e5f5'}}>
-        </CardContent>        
+        <Link className='linkReactFoodMenu' sx={{}} to = {`/detail/${idFood}`}> <Button  sx={{mt:2, ml:5, bgcolor:'#84ffff'}}>Ver Detalle</Button></Link> 
+        </CardContent>       
+        
       </Card>
     }
     </div>

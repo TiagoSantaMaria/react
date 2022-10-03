@@ -57,7 +57,7 @@ const Cart = () => {
         <div className='centrar'>
           <p>CARRO VACIO</p>
           <img src={picture} alt='NOTIFICACION CARRO VACIO'/>
-          <Link className='linksReact' to = {`/foodmenu`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:4.5, mt:1, bgcolor:'#64b5f6'}}>VOLVER A CARTA</Button></Link>
+          <Link className='linkReactFoodMenu' to = {`/foodmenu`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:4.5, mt:1, bgcolor:'#00796b', color:'white'}}>VOLVER A CARTA</Button></Link>
         </div>
         
       }

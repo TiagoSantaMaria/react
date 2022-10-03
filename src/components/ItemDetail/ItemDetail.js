@@ -30,25 +30,31 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
   }
 
 
-  //CONTEXT 
+  //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
-  const [orderFood, setOrderFood] = useContext(OrderFoodContext);
-  
+
+  //CONTEXT ORDERFOOD AND PRICE
+  const [orderFood, setOrderFood, priceTotal, setPriceTotal] = useContext(OrderFoodContext);
+
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
   const [stockFood, setStock] = useState(stock);
+  
+  let priceAcum = 0;
   
   const agregarCantidad = () => {
     if(counter>0){
       setGeneralCounter(generalCounter+counter);
       onAdd(counter);
-      const comidaencontrada = foodsArray.find(food => food.idFood === idFood);      
+      const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
       if (comidaencontrada.quantityFood === 0){
         comidaencontrada.quantityFood = counter;
         orderFood.push(comidaencontrada);
       } else{
         comidaencontrada.quantityFood = comidaencontrada.quantityFood + counter;
       }
+      priceAcum = priceAcum + comidaencontrada.quantityFood * comidaencontrada.valueFood;
+      setPriceTotal(priceAcum);
       comidaencontrada.stockFood = comidaencontrada.stockFood - counter;
       setCounter(0);
     }
@@ -98,8 +104,8 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
             onAdd={onAdd}
           />
         </CardContent>.
-        <Link className='linksReact' to = {`/cart`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:3.5, bgcolor:'#64b5f6'}}>VER CARRITO</Button></Link>
-        <Link className='linksReact' to = {`/foodmenu`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:4.5, mt:1, bgcolor:'#64b5f6'}}>VOLVER A CARTA</Button></Link>
+        <Link className='linkReactFoodMenu' to = {`/cart`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:3.5, bgcolor:'#84ffff'}}>VER CARRITO</Button></Link>
+        <Link className='linkReactFoodMenu' to = {`/foodmenu`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:4.5, mt:1, bgcolor:'#84ffff'}}>VOLVER A CARTA</Button></Link>
       </Card>
     }
     </div>

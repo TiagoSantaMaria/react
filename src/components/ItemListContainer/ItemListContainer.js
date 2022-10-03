@@ -30,7 +30,7 @@ const ItemListContainer = () => {
           :
           <div className='divHijo'>
             <ItemList foodsArray={foodsMenu}/>
-            <Link className='linksReact' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>IR A CARRITO</Button></Link>
+            <Link className='linkReactFoodMenu' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>IR A CARRITO</Button></Link>
           </div>
         }
       </div>
