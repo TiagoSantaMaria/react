@@ -1,5 +1,5 @@
 .divPadre{
-    margin-top: 80px;
+    margin-top: 50px;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -16,6 +16,7 @@
     align-items: center;
     margin: 30px;
     width: 72vw;
+    position:relative;
 }
 .divBebe{
     margin: 7px;

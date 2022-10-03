@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Cart.css'
 
 //CONTEXT COUNTER
@@ -8,6 +8,7 @@ import { OrderFoodContext } from '../../components/Context/OrderFoodContext';
 //COMPONENT
 import ItemInCart from '../../components/ItemInCart/ItemInCart'
 import PriceTotal from '../../components/PriceTotal/PriceTotal';
+import FormFinishFood from '../../components/FormFinishFood/FormFinishFood';
 
 //ROUTER DOM
 import { Link } from 'react-router-dom';
@@ -25,7 +26,12 @@ const Cart = () => {
   //CONTEXT ORDERFOOD
   const [orderFood, setOrderFood, priceTotal, setPriceTotal] = useContext(OrderFoodContext);
 
-  // const img = 'https://www.angelsbypilarnavarro.com/theme/Angelsby/css/web/carrito-vacio.png';
+  const [terminarCompra,setTerminarCompra] = useState(false);
+  const finishFood = () =>{
+    setTerminarCompra(true);
+    console.log(terminarCompra);
+  }
+
 
   return (
     <div className='divPadre'>
@@ -52,6 +58,8 @@ const Cart = () => {
             priceTotal={priceTotal}
             setPriceTotal={setPriceTotal}
           />
+          <Button onClick={finishFood} className='acomodoBotonEnItemDetail' sx={{ml:4.5, bgcolor:'#00796b', color:'white'}}>TERMINAR COMPRA</Button>
+          {terminarCompra ? <FormFinishFood/>:console.log("hola")}
         </div>
       :
         <div className='centrar'>
@@ -59,9 +67,7 @@ const Cart = () => {
           <img src={picture} alt='NOTIFICACION CARRO VACIO'/>
           <Link className='linkReactFoodMenu' to = {`/foodmenu`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:4.5, mt:1, bgcolor:'#00796b', color:'white'}}>VOLVER A CARTA</Button></Link>
         </div>
-        
       }
-      
     </div>
   )
 }
