@@ -1,7 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react'
+//REACT ROUTER DOM
+import { Link } from 'react-router-dom';
+// Firebase
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseConfig';
 
 //CONTEXT ORDERFOOD
 import { OrderFoodContext } from '../../components/Context/OrderFoodContext';
+import { CounterContext } from '../../components/Context/CounterContext';
 
 //MATERIAL UI
 import { TextField, Button } from '@mui/material'
@@ -31,97 +38,109 @@ const yupSchema = yup
 }).required();
 
 const FormFinishFood = () => {
+  const [orderFood, setOrderFood, priceTotal, setPriceTotal] = useContext(OrderFoodContext);
+  const [generalCounter, setGeneralCounter] = useContext(CounterContext);
 
-  const [orderClient, setOrderClient] = useState([])
-  const [orderFood] = useContext(OrderFoodContext);
-  
-  const submitHandler = (values, resetForm) => {
+  const resetsAll = () =>{
+    setOrderFood([]);
+    setPriceTotal(0);
+    setGeneralCounter(0);
+  }
+  // Datos de la Venta:
+  const [purchaseID, setPurchaseID] = useState('');
+  //Funcion para Subir La Compra a la BD 
+  const submitHandler = async (values, resetForm) => {
     console.log(values);
     console.log(orderFood);
-    const newArray = Object.assign({}, values, orderFood);
-    setOrderClient(newArray)
-    console.log(newArray);
-    //SE VE GUARDADO EN LA SEGUNDA ITERACION
+    const orderClient = Object.assign({}, values, orderFood);
     console.log(orderClient);
+    const docRef = await addDoc(collection(db, 'purchase'), {
+			orderClient,
+		});
+    setPurchaseID(docRef.id);
     resetForm();
   };
 
   return (
-    <div className='form'>
-      <h2>CONFIRMACION COMPRA</h2>
-      <Formik initialValues ={{firstName:'', lastName:'',phone:'',address:''}} 
-        onSubmit={(values, {resetForm}) => submitHandler(values,resetForm)}
-        validationSchema={yupSchema}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isValid,
-          dirty,
-        }) => (
-          <form onSubmit={handleSubmit} className='acomodoFormulario'>
-            <TextField
-              name='firstName'
-              placeholder='Ingresar Nombre'
-              variant='outlined'
-              sx={{mt:0, bgcolor:'white', borderRadius:5}}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.firstName}
-            />
-              {errors.firstName && touched.firstName && errors.firstName}
-            <TextField
-              name='lastName'
-              placeholder='Ingresar Apellido'
-              variant='outlined'
-              sx={{mt:2, bgcolor:'white', borderRadius:5}}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.lastName}
-              type='text'
-            />
-              {errors.lastName && touched.lastName && errors.lastName}
-            <TextField
-              name='phone'
-              placeholder='Ingresar Telefono de contacto'
-              variant='outlined'
-              sx={{mt:2, bgcolor:'white', borderRadius:5}}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.phone}
-              type='number'
-            />
-            {errors.phone && touched.phone && errors.phone}
-            <TextField
-              name='address'
-              placeholder='Ingresar Direccion'
-              variant='outlined'
-              sx={{mt:2, bgcolor:'white', borderRadius:5}}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.address}
-            />
-            {errors.address && touched.address && errors.address}
-            <Button
-              disabled={!(isValid && dirty)}
-              type='submit'
-              sx={{mt:2, bgcolor:'white',color:'black', borderRadius:5}}
-            >
-              Enviar Datos
-            </Button>
-            {/* <Button
-              type='clear'
-            >
-              Otra funcion
-            </Button> */}
-          </form>
-          )}
-      </Formik>
-    </div>
+
+    purchaseID !== '' ? 
+      <div className='aceptacionCompra'>
+        <p className='estiloFormCompraConfirmada'>MUCHAS GRACIAS POR SU COMPRA</p>
+        <p className='estiloFormCompraConfirmada'>EL CODIGO DE COMPRA ES:{purchaseID}</p> 
+        <Link className='botonForm' to = {`/`}> <Button onClick={resetsAll} className='botonInicioForm' sx={{bgcolor:'white', w:30, color:'black'}}> Inicio </Button> </Link>
+      </div>
+    :
+      <div className='form'>
+        <h2>CONFIRMACION COMPRA</h2>
+        <Formik initialValues ={{firstName:'', lastName:'',phone:'',address:''}} 
+          onSubmit={(values, {resetForm}) => submitHandler(values,resetForm)}
+          validationSchema={yupSchema}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isValid,
+            dirty,
+          }) => (
+            <form onSubmit={handleSubmit} className='acomodoFormulario'>
+              <TextField
+                name='firstName'
+                placeholder='Ingresar Nombre'
+                variant='outlined'
+                sx={{mt:0, bgcolor:'white', borderRadius:5}}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.firstName}
+              />
+                {errors.firstName && touched.firstName && errors.firstName}
+              <TextField
+                name='lastName'
+                placeholder='Ingresar Apellido'
+                variant='outlined'
+                sx={{mt:2, bgcolor:'white', borderRadius:5}}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.lastName}
+                type='text'
+              />
+                {errors.lastName && touched.lastName && errors.lastName}
+              <TextField
+                name='phone'
+                placeholder='Ingresar Telefono de contacto'
+                variant='outlined'
+                sx={{mt:2, bgcolor:'white', borderRadius:5}}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.phone}
+                type='number'
+              />
+              {errors.phone && touched.phone && errors.phone}
+              <TextField
+                name='address'
+                placeholder='Ingresar Direccion'
+                variant='outlined'
+                sx={{mt:2, bgcolor:'white', borderRadius:5}}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.address}
+              />
+              {errors.address && touched.address && errors.address}
+              <Button
+                disabled={!(isValid && dirty)}
+                type='submit'
+                sx={{mt:2, bgcolor:'white',color:'black', borderRadius:5}}
+              >
+                Enviar Datos
+              </Button>
+              <p className='estiloFormCompraNOConfirmada'>Completar formulario para confirmación de compra</p>
+            </form>
+            )}
+        </Formik>
+      </div>
   );
 };
 
