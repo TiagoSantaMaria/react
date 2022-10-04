@@ -1,9 +1,45 @@
 .form{
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.774);
+    border-radius: 30px;
+    color: white;
     width: 40vw;
-    height: 300px;
-    font-weight: 900;
+    height: 70vh;
+    font-weight: 00;
     margin-bottom: 50px;
-    opacity: 0.7;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+.acomodoFormulario{
+    display: flex;
+    flex-direction: column;
+    opacity: 8;
+}
+.estiloFormCompraNOConfirmada{
+    font-weight: 700;
+}
+
+
+.estiloFormCompraConfirmada{
+    font-weight: 700;
+}
+.aceptacionCompra{
+    background-color: rgba(0, 0, 0, 0.932);
+    border-radius: 30px;
+    color: white;
+    width: 40vw;
+    height: 30vh;
+    margin-bottom: 50px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botonForm{
+    text-decoration: none;
+}
+.botonInicioForm{
+    width: 80px;
+}
+
