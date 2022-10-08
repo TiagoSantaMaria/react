@@ -50,10 +50,10 @@ const FormFinishFood = () => {
   const [purchaseID, setPurchaseID] = useState('');
   //Funcion para Subir La Compra a la BD 
   const submitHandler = async (values, resetForm) => {
-    console.log(values);
-    console.log(orderFood);
-    const orderClient = Object.assign({}, values, orderFood);
-    console.log(orderClient);
+    //RELLENO INFORMACION DEL PEDIDO QUE VA EN LA BASE DE DATOS
+    let orderClient = Object.assign({}, values);
+    orderClient.foods = Object.assign({}, orderFood);;
+    orderClient.valueFood = priceTotal;
     const docRef = await addDoc(collection(db, 'purchase'), {
 			orderClient,
 		});
