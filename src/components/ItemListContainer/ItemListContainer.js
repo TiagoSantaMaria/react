@@ -28,10 +28,15 @@ const ItemListContainer = () => {
           isLoading ? 
           <LoadingComp/>
           :
-          <div className='divHijo'>
-            <ItemList foodsArray={foodsMenu}/>
-            <Link className='linkReactFoodMenu' to = {`/cart`}> <Button className='acomodoBoton' sx={{mt:1.5, bgcolor:'#64b5f6'}}>IR A CARRITO</Button></Link>
+          <div>
+            <div className='divHijo'>
+              <ItemList foodsArray={foodsMenu}/>
+            </div>
+            <div className='centrarDiv'>
+              <Link className='linkReactFoodMenu' to = {`/cart`}> <Button className='acomodoBoton' sx={{bgcolor:'#64b5f6', color:'black'}}>IR A CARRITO</Button></Link>
+            </div>
           </div>
+          
         }
       </div>
   )

@@ -3,10 +3,9 @@
     display: flex;
     justify-content: center;
 }
-
 .divHijo{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -16,8 +15,12 @@
 .sacarEstilo{
     text-decoration: none;
 }
+.centrarDiv{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 .acomodoBoton{
     width: 25vw;
-    display: flex;
     justify-content: center;
 }

@@ -65,7 +65,7 @@ const Item = ({name, img, desc, stock, value, idFood, foodsArray}) => {
           </Typography>
         </CardContent>
         <CardContent sx={{height:38, bgcolor:'#f3e5f5'}}>
-        <Link className='linkReactFoodMenu' sx={{}} to = {`/detail/${idFood}`}> <Button  sx={{mt:2, ml:5, bgcolor:'#84ffff'}}>Ver Detalle</Button></Link> 
+        <Link className='linkReactFoodMenu' sx={{}} to = {`/detail/${idFood}`}> <Button  sx={{mt:2, ml:5, bgcolor:'#84ffff', color:'black'}}>Ver Detalle</Button></Link> 
         </CardContent>       
         
       </Card>
