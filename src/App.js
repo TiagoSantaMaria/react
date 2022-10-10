@@ -13,6 +13,7 @@ import Home from './views/Home/Home';
 import FoodMenu from './views/FoodMenu/FoodMenu';
 import CharacterDetail from './views/CharacterDetail/CharacterDetail';
 import Cart from './views/Cart/Cart'
+import FoodCategory from './views/FoodCategory/FoodCategory';
 
 // CONTEXT
 import { ItemsProvider } from './components/Context/ItemsContext';
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/' element={<Home/>} />
                 <Route path='/foodmenu' element={<FoodMenu/>} />
                 <Route path='/detail/:id' element={<CharacterDetail/>} />
+                <Route path='/foodcategory/:category' element={<FoodCategory/>} />
                 <Route path='/cart' element={<Cart/>} />
               </Routes>
             <Footer/>

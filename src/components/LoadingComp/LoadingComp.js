@@ -9,7 +9,7 @@ import './LoadingComp.css'
 
 export default function LinearColor() {
   return (
-      <Stack sx={{ width: '100%', color: 'grey.500' }} spacing={2} className='loadingComp'>
+      <Stack sx={{ width: '100%', color: 'grey.500', mt:20 }} spacing={2} className='loadingComp'>
         <LinearProgress color="secondary" />
         <LinearProgress color="success" />
         <LinearProgress color="inherit" />
