@@ -28,7 +28,12 @@ const ItemListContainer = () => {
           isLoading ? 
           <LoadingComp/>
           :
-          <div>
+          <div className='acomodoGeneralFoodMenu'>
+            <div className='foodsCategory'>
+              <Link className='linkReactFoodMenu' sx={{}} to = {`/foodcategory/carne`}><Button sx={{color:'black'}}>Carne</Button></Link>
+              <Link className='linkReactFoodMenu' sx={{}} to = {`/foodcategory/pasta`}><Button sx={{color:'black'}}>Pasta</Button></Link>
+              <Link className='linkReactFoodMenu' sx={{}} to = {`/foodcategory/bebida`}><Button sx={{color:'black'}}>Bebida</Button></Link>
+            </div>
             <div className='divHijo'>
               <ItemList foodsArray={foodsMenu}/>
             </div>
