@@ -1,5 +1,6 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
 //MATERIAL UI
 import Card from '@mui/material/Card';
@@ -29,7 +30,6 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
     alert(`Se agregaron ${quantify}`);
   }
 
-
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
 
@@ -42,20 +42,36 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
   
   let priceAcum = 0;
   
+  //LOCAL STORAGE
+  useEffect (()=>{
+    localStorage.setItem('order',JSON.stringify(orderFood));
+    localStorage.setItem('counter',JSON.stringify(generalCounter));
+    localStorage.setItem('price',JSON.stringify(priceTotal));
+  },[orderFood, generalCounter,priceTotal])
+
   const agregarCantidad = () => {
     if(counter>0){
       setGeneralCounter(generalCounter+counter);
-      onAdd(counter);
+      // onAdd(counter);
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
-      if (comidaencontrada.quantityFood === 0){
+      const comidaencontrada2 = orderFood.find(food => food.idFood === idFood);
+      console.log(comidaencontrada);
+      console.log(comidaencontrada2 == undefined);
+      if (comidaencontrada.quantityFood === 0 && comidaencontrada2 == undefined){
         comidaencontrada.quantityFood = counter;
         orderFood.push(comidaencontrada);
       } else{
-        comidaencontrada.quantityFood = comidaencontrada.quantityFood + counter;
+        orderFood.forEach(food => {
+          if (food.nameFood === comidaencontrada.nameFood){
+            food.quantityFood = food.quantityFood+counter;
+            food.stockFood = food.stockFood - counter;
+          }
+        });
       }
       priceAcum = priceAcum + comidaencontrada.quantityFood * comidaencontrada.valueFood;
+      console.log(priceAcum);
       setPriceTotal(priceAcum);
-      comidaencontrada.stockFood = comidaencontrada.stockFood - counter;
+      comidaencontrada.stockFood = stockFood;
       setCounter(0);
     }
   }

@@ -36,7 +36,7 @@ const Cart = () => {
   return (
     <div className='divPadre'>
       {
-        priceTotal !== 0 ?
+        orderFood.length !== 0 ?
         <div className='divHijo'>
         {
           orderFood.map((food) =>
@@ -59,7 +59,7 @@ const Cart = () => {
             setPriceTotal={setPriceTotal}
           />
           <Button onClick={finishFood} className='acomodoBotonEnItemDetail' sx={{ml:4.5, bgcolor:'#00796b', color:'white'}}>TERMINAR COMPRA</Button>
-          {terminarCompra ? <FormFinishFood orderFood={orderFood}/>:console.log("hola")}
+          {terminarCompra ? <FormFinishFood orderFood={orderFood}/>:console.log("")}
         </div>
       :
         <div className='centrar'>
