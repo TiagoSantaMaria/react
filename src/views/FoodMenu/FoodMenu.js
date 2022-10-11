@@ -21,8 +21,9 @@ const FoodMenu = () => {
     if (counterPrueba > 0) {
       setGeneralCounter(counterPrueba);
       const orderFoodPrueba = JSON.parse(localStorage.getItem(`order`));
+      const pricePrueba = JSON.parse(localStorage.getItem(`price`));
+      setPriceTotal(pricePrueba);
       setOrderFood(orderFoodPrueba);
-      console.log(orderFood);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])

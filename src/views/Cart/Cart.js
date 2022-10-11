@@ -36,7 +36,7 @@ const Cart = () => {
   return (
     <div className='divPadre'>
       {
-        priceTotal !== 0 ?
+        orderFood.length !== 0 ?
         <div className='divHijo'>
         {
           orderFood.map((food) =>
