@@ -73,6 +73,7 @@ const FormFinishFood = () => {
 		});
     setPurchaseID(docRef.id);
     resetForm();
+    localStorage.clear();
   };
 
   return (
