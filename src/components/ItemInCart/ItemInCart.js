@@ -9,18 +9,16 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {Button, CardActionArea} from '@mui/material';
 
 //HOOK REACT
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 //COMPONENTS
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
 
 //CONTEXT
 import { CounterContext } from '../Context/CounterContext';
-import { OrderFoodContext } from '../Context/OrderFoodContext';
-
-
 
 export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, setPriceTotal}) {
+
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
   
@@ -30,6 +28,14 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
 
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
+
+
+  useEffect (()=>{
+    localStorage.setItem('order',JSON.stringify(orderFood));
+    localStorage.setItem('counter',JSON.stringify(generalCounter));
+    localStorage.setItem('price',JSON.stringify(priceTotal));
+    console.log("Se REPITE")
+  },[orderFood, generalCounter,priceTotal])
 
 
   // FUNCIONES DE MANEJO DE CANTIDADES
@@ -73,12 +79,11 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
       food.quantityFood = food.quantityFood - 1;
       food.stockFood = food.stockFood + 1;
       setGeneralCounter(generalCounter-1);
-      console.log("HOLA");
       priceAcum = priceAcum - food.quantityFood * food.valueFood;
       setPriceTotal(priceAcum);
       if (food.quantityFood === 0){
         setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
-        console.log()
+        localStorage.clear();
       }
     }
   }
