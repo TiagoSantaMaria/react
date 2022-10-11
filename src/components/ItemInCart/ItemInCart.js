@@ -5,7 +5,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import DeleteIcon from '@mui/icons-material/Delete';
 import {Button, CardActionArea} from '@mui/material';
 
 //HOOK REACT
@@ -16,30 +15,26 @@ import ItemCountInCard from '../ItemCount/ItemCountInCard';
 
 //CONTEXT
 import { CounterContext } from '../Context/CounterContext';
+import { ItemsContext } from '../Context/ItemsContext';
 
 export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, setPriceTotal}) {
 
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
-  
-  //PARA CONTROL DE CARRITO VACIO (TODAVIA NO FUNCIONA)
-  const [cartEmpty, setCartEmpty] = useState(false);
+
   let foodInCart = true;
 
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
 
-
   useEffect (()=>{
     localStorage.setItem('order',JSON.stringify(orderFood));
     localStorage.setItem('counter',JSON.stringify(generalCounter));
     localStorage.setItem('price',JSON.stringify(priceTotal));
-    console.log("Se REPITE")
   },[orderFood, generalCounter,priceTotal])
 
 
   // FUNCIONES DE MANEJO DE CANTIDADES
-
   let priceAcum = priceTotal;
 
   const agregarCantidad = () => {
@@ -50,12 +45,8 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
       food.quantityFood = food.quantityFood + counter;
       let i=0
       orderFood.forEach(function(){
-        console.log(i);
-        console.log(orderFood[i].quantityFood);
         if (orderFood[i].nameFood === food.nameFood){
-          console.log("LO ENCONTRO");
           orderFood[i].quantityFood = food.quantityFood;
-          console.log(orderFood[i].quantityFood);
         }
         i++;
       });

@@ -47,7 +47,6 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
     localStorage.setItem('order',JSON.stringify(orderFood));
     localStorage.setItem('counter',JSON.stringify(generalCounter));
     localStorage.setItem('price',JSON.stringify(priceTotal));
-    console.log("Se REPITE")
   },[orderFood, generalCounter,priceTotal])
 
   const agregarCantidad = () => {
