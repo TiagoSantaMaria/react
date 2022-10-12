@@ -10,6 +10,10 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 
+//LIBRERIA TOASTIFY
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 //COMPONENT
 import ItemCountInCard from '../../components/ItemCount/ItemCountInCard';
 
@@ -25,9 +29,18 @@ import { OrderFoodContext } from '../Context/OrderFoodContext';
 
 
 const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsArray}) => {
-  //NOTIFICACION ADD CARRITO
-  const onAdd = (quantify) =>{
-    alert(`Se agregaron ${quantify}`);
+  // TOASTIFY
+  const messageAdd = () =>{
+    toast.success(`Se agrego al carrito ${counter}`, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
   }
 
   //CONTEXT COUNTER
@@ -52,7 +65,6 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
   const agregarCantidad = () => {
     if(counter>0){
       setGeneralCounter(generalCounter+counter);
-      // onAdd(counter);
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
       const comidaencontrada2 = orderFood.find(food => food.idFood === idFood);
       console.log(comidaencontrada);
@@ -72,6 +84,7 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
       console.log(priceAcum);
       setPriceTotal(priceAcum);
       comidaencontrada.stockFood = stockFood;
+      messageAdd();
       setCounter(0);
     }
   }
@@ -117,11 +130,11 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
             agregarCantidad={agregarCantidad}
             handlerCounterUp={handlerCounterUp}
             handlerCounterDown={handlerCounterDown}
-            onAdd={onAdd}
           />
         </CardContent>.
         <Link className='linkReactFoodMenu' to = {`/cart`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:3.5, bgcolor:'#84ffff'}}>VER CARRITO</Button></Link>
         <Link className='linkReactFoodMenu' to = {`/foodmenu`}> <Button className='acomodoBotonEnItemDetail' sx={{ml:4.5, mt:1, bgcolor:'#84ffff'}}>VOLVER A CARTA</Button></Link>
+        <ToastContainer />
       </Card>
     }
     </div>
