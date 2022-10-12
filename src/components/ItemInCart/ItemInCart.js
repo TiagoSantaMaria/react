@@ -21,6 +21,7 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
 
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
+  const [itemsFoods] = useContext(ItemsContext);
 
   let foodInCart = true;
 
@@ -74,6 +75,8 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
       setPriceTotal(priceAcum);
       if (food.quantityFood === 0){
         setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
+        // eslint-disable-next-line eqeqeq
+        itemsFoods.forEach(foodM => foodM.nameFood == food.nameFood ? foodM.stockFood = foodM.stockFood+1 : console.log(""))
         localStorage.clear();
       }
     }
