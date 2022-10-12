@@ -36,9 +36,6 @@ const FoodCategory = () => {
         getFoods()
     },[])
 
-  console.log(category);
-  console.log(foodsCat);
-
     //Simulacion API - DECLARACION ESTADO DE ESPERA SERVIDOR
     const [isLoading, setIsLoading] = useState(true);
     setTimeout(()=>{

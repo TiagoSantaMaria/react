@@ -70,13 +70,13 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
     if (food.quantityFood > 0){
       food.quantityFood = food.quantityFood - 1;
       food.stockFood = food.stockFood + 1;
-      itemsFoods.forEach(foodM => foodM.nameFood === food.nameFood ? foodM.stockFood = food.stockFood : console.log(""))
+      itemsFoods.forEach(foodM => foodM.nameFood === food.nameFood ? foodM.stockFood = food.stockFood : console.log(""));
+      itemsFoods.forEach(foodM => foodM.nameFood === food.nameFood ? foodM.quantityFood = food.quantityFood : console.log(""));
       setGeneralCounter(generalCounter-1);
       priceAcum = priceAcum - food.quantityFood * food.valueFood;
       setPriceTotal(priceAcum);
       if (food.quantityFood === 0){
         setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
-        // itemsFoods.forEach(foodM => foodM.nameFood == food.nameFood ? foodM.stockFood = foodM.stockFood+1 : console.log(""))
         localStorage.clear();
       }
     }
