@@ -56,7 +56,7 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
       const comidaencontrada2 = orderFood.find(food => food.idFood === idFood);
       console.log(comidaencontrada);
-      console.log(comidaencontrada2 == undefined);
+      console.log(comidaencontrada2);
       if (comidaencontrada.quantityFood === 0 && comidaencontrada2 == undefined){
         comidaencontrada.quantityFood = counter;
         orderFood.push(comidaencontrada);
