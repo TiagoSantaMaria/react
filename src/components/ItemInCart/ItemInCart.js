@@ -7,6 +7,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Button, CardActionArea} from '@mui/material';
 
+//LIBRERIA TOASTIFY
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 //HOOK REACT
 import { useContext, useState, useEffect } from 'react';
 
@@ -18,6 +23,31 @@ import { CounterContext } from '../Context/CounterContext';
 import { ItemsContext } from '../Context/ItemsContext';
 
 export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, setPriceTotal}) {
+  // TOASTIFY
+  const messageAdd = () =>{
+    toast.success(`Se agrego al carrito ${counter}`, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
+  const messageDelete = () =>{
+    toast.error(`Se quito una unidad`, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
 
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
@@ -51,6 +81,7 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
         }
         i++;
       });
+      messageAdd();
       setCounter(0);
     }
   }
@@ -80,6 +111,7 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
         localStorage.clear();
       }
     }
+    messageDelete()
   }
     
   return (
@@ -119,6 +151,7 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
           />
       </CardContent>
     </CardActionArea>
+    <ToastContainer />
   </Card>    
   );
 }

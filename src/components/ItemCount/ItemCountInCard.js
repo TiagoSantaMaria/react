@@ -1,12 +1,15 @@
 import React, {  } from 'react'
+//MATERIAL UI
 import IconButton from '@mui/material/IconButton';
 import { ButtonGroup, Button  } from '@mui/material';
-import './ItemCountInCard.css'
 import DeleteIcon from '@mui/icons-material/Delete';
+//CSS
+import './ItemCountInCard.css'
+
 
 
 const ItemCountInCard = ({counter,agregarCantidad,handlerCounterUp,handlerCounterDown, deleteItem, foodInCart}) => {
-
+    
   return (
     foodInCart ?
     <div>
