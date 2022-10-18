@@ -33,9 +33,7 @@ const Cart = () => {
   const [terminarCompra,setTerminarCompra] = useState(false);
   const finishFood = () =>{
     setTerminarCompra(true);
-    console.log(terminarCompra);
   }
-  
   useEffect(()=>{
     const counterPrueba = JSON.parse(localStorage.getItem(`counter`));
     if (counterPrueba > 0) {

@@ -67,8 +67,6 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
       setGeneralCounter(generalCounter+counter);
       const comidaencontrada = foodsArray.find(food => food.idFood === idFood);
       const comidaencontrada2 = orderFood.find(food => food.idFood === idFood);
-      console.log(comidaencontrada);
-      console.log(comidaencontrada2);
       if (comidaencontrada.quantityFood === 0 && comidaencontrada2 == undefined){
         comidaencontrada.quantityFood = counter;
         orderFood.push(comidaencontrada);
@@ -81,7 +79,6 @@ const ItemDetail = ({name, img, desc, stock, value, idFood, completeDesc, foodsA
         });
       }
       priceAcum = priceAcum + comidaencontrada.quantityFood * comidaencontrada.valueFood;
-      console.log(priceAcum);
       setPriceTotal(priceAcum);
       comidaencontrada.stockFood = stockFood;
       messageAdd();

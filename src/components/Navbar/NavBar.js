@@ -25,9 +25,9 @@ const NavBarr = ({img}) => {
                           isMatch ? (
                             <>
                               <Typography>
-                                <Tabs textColor="" sx={{marginLeft:""}}>
+                                <Tabs>
                                   <DrawerComp/>
-                                  <Tabs textColor="" sx={{marginLeft:""}}>
+                                  <Tabs>
                                   <Link className='linksReact' to = {`/`}>
                                     <CardMedia sx={{width:165}}
                                       component="img"
@@ -50,7 +50,7 @@ const NavBarr = ({img}) => {
                             <>
                             <div className='navBar'>
                               <div className='logoNavBar'>
-                              <Tabs textColor="" sx={{marginLeft:""}}>
+                              <Tabs>
                                 <Link className='' to = {`/`}>
                                   <CardMedia sx={{width:175}}
                                     component="img"
@@ -64,7 +64,7 @@ const NavBarr = ({img}) => {
                               </div>
                               <div className='LinksPagesNavBar'>
                                 <Tabs>
-                                  <Link className='linksReact ' to = {`/`}> <Tab label="Inicio" className=''/> </Link>
+                                  <Link className='linksReact ' to = {`/`}> <Tab label="Inicio"/> </Link>
                                   <Link className='linksReact' to = {`/foodmenu`}> <Tab label="Carta"/> </Link>
                                   {/* <Tab label="Reserva"/>
                                   <Tab label="Ayuda"/> */}

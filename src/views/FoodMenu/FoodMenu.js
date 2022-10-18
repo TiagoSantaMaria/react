@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 //CSS
 import './FoodMenu.css'
@@ -38,6 +38,7 @@ const FoodMenu = () => {
 
 orderFood.forEach(foodO =>{
   foodsMenu.forEach(foodM =>{
+    // eslint-disable-next-line eqeqeq
     if (foodM.nameFood == foodO.nameFood){
       foodM.stockFood = foodO.stockFood;
     }
