@@ -22,6 +22,7 @@ export const ItemsProvider = ({ children }) => {
     })
     setFoodsMenu(docs);
     };
+    
     useEffect(()=>{
         getFoods()
     },[])

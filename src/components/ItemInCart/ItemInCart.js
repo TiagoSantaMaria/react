@@ -5,35 +5,67 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import DeleteIcon from '@mui/icons-material/Delete';
-import {Button, CardActionArea} from '@mui/material';
+import {CardActionArea} from '@mui/material';
+
+//LIBRERIA TOASTIFY
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 //HOOK REACT
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 //COMPONENTS
 import ItemCountInCard from '../ItemCount/ItemCountInCard';
 
 //CONTEXT
 import { CounterContext } from '../Context/CounterContext';
-import { OrderFoodContext } from '../Context/OrderFoodContext';
-
-
+import { ItemsContext } from '../Context/ItemsContext';
 
 export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, setPriceTotal}) {
+  // TOASTIFY
+  const messageAdd = () =>{
+    toast.success(`Se agrego al carrito ${counter}`, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
+  const messageDelete = () =>{
+    toast.error(`Se quito una unidad`, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
+
   //CONTEXT COUNTER
   const [generalCounter, setGeneralCounter] = useContext(CounterContext);
-  
-  //PARA CONTROL DE CARRITO VACIO (TODAVIA NO FUNCIONA)
-  const [cartEmpty, setCartEmpty] = useState(false);
+  const [itemsFoods] = useContext(ItemsContext);
+
   let foodInCart = true;
 
   //LOGICA CONTADOR
   const [counter, setCounter] = useState(0);
 
+  useEffect (()=>{
+    localStorage.setItem('order',JSON.stringify(orderFood));
+    localStorage.setItem('counter',JSON.stringify(generalCounter));
+    localStorage.setItem('price',JSON.stringify(priceTotal));
+  },[orderFood, generalCounter,priceTotal])
+
 
   // FUNCIONES DE MANEJO DE CANTIDADES
-
   let priceAcum = priceTotal;
 
   const agregarCantidad = () => {
@@ -44,15 +76,12 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
       food.quantityFood = food.quantityFood + counter;
       let i=0
       orderFood.forEach(function(){
-        console.log(i);
-        console.log(orderFood[i].quantityFood);
         if (orderFood[i].nameFood === food.nameFood){
-          console.log("LO ENCONTRO");
           orderFood[i].quantityFood = food.quantityFood;
-          console.log(orderFood[i].quantityFood);
         }
         i++;
       });
+      messageAdd();
       setCounter(0);
     }
   }
@@ -72,15 +101,17 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
     if (food.quantityFood > 0){
       food.quantityFood = food.quantityFood - 1;
       food.stockFood = food.stockFood + 1;
+      itemsFoods.forEach(foodM => foodM.nameFood === food.nameFood ? foodM.stockFood = food.stockFood : console.log(""));
+      itemsFoods.forEach(foodM => foodM.nameFood === food.nameFood ? foodM.quantityFood = food.quantityFood : console.log(""));
       setGeneralCounter(generalCounter-1);
-      console.log("HOLA");
       priceAcum = priceAcum - food.quantityFood * food.valueFood;
       setPriceTotal(priceAcum);
       if (food.quantityFood === 0){
         setOrderFood(orderFood.filter(wantFood => wantFood.idFood !== food.idFood));
-        console.log()
+        localStorage.clear();
       }
     }
+    messageDelete()
   }
     
   return (
@@ -120,6 +151,7 @@ export default function ItemInCart({food, orderFood, setOrderFood, priceTotal, s
           />
       </CardContent>
     </CardActionArea>
+    <ToastContainer />
   </Card>    
   );
 }

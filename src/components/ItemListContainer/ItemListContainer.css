@@ -3,21 +3,36 @@
     display: flex;
     justify-content: center;
 }
-
 .divHijo{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 30px;
     width: 72vw;
 }
+.acomodoGeneralFoodMenu{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
 .sacarEstilo{
     text-decoration: none;
 }
-.acomodoBoton{
-    width: 25vw;
+.centrarDiv{
     display: flex;
     justify-content: center;
+    align-content: center;
+}
+.acomodoBoton{
+    width: 25vw;
+    justify-content: center;
+}
+.foodsCategory{
+    width: 30vw;
+    text-align: center;
+    background-color: wheat;
+    border: solid  rgba(39, 32, 32, 0.534);
 }

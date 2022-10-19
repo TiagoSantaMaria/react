@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react'
+
 //REACT ROUTER DOM
 import { Link } from 'react-router-dom';
+
 // Firebase
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
@@ -13,12 +15,16 @@ import { CounterContext } from '../../components/Context/CounterContext';
 //MATERIAL UI
 import { TextField, Button } from '@mui/material'
 
+//COMP
+import LoadingComp2 from '../LoadingComp/LoadingComp2';
+
 //CSS
 import './FormFinishFood.css'
 
 //FORMIK AND YUP
 import * as yup from 'yup';
 import {Formik} from 'formik';
+
 
 const yupSchema = yup
   .object()
@@ -46,10 +52,17 @@ const FormFinishFood = () => {
     setPriceTotal(0);
     setGeneralCounter(0);
   }
+
   // Datos de la Venta:
   const [purchaseID, setPurchaseID] = useState('');
+  const [sendInf, setSendInf] = useState(0);
+
   //Funcion para Subir La Compra a la BD 
   const submitHandler = async (values, resetForm) => {
+    setSendInf(1);
+    setTimeout(()=>{
+      setSendInf(2);
+    },2000)
     //RELLENO INFORMACION DEL PEDIDO QUE VA EN LA BASE DE DATOS
     let orderClient = Object.assign({}, values);
     orderClient.foods = Object.assign({}, orderFood);;
@@ -59,16 +72,22 @@ const FormFinishFood = () => {
 		});
     setPurchaseID(docRef.id);
     resetForm();
+    localStorage.clear();
   };
 
   return (
 
-    purchaseID !== '' ? 
-      <div className='aceptacionCompra'>
-        <p className='estiloFormCompraConfirmada'>MUCHAS GRACIAS POR SU COMPRA</p>
-        <p className='estiloFormCompraConfirmada'>EL CODIGO DE COMPRA ES:{purchaseID}</p> 
-        <Link className='botonForm' to = {`/`}> <Button onClick={resetsAll} className='botonInicioForm' sx={{bgcolor:'white', w:30, color:'black'}}> Inicio </Button> </Link>
-      </div>
+    sendInf !== 0 ?
+      sendInf === 1 ? 
+        <div className='aceptacionCompra'>
+          <LoadingComp2/> 
+        </div>
+      : 
+        <div className='aceptacionCompra'>
+          <p className='estiloFormCompraConfirmada'>MUCHAS GRACIAS POR SU COMPRA</p>
+          <p className='estiloFormCompraConfirmada'>EL CODIGO DE COMPRA ES:{purchaseID}</p> 
+          <Link className='botonForm' to = {`/`}> <Button onClick={resetsAll} className='botonInicioForm' sx={{bgcolor:'white', w:30, color:'black'}}> Inicio </Button> </Link>
+        </div>
     :
       <div className='form'>
         <h2>CONFIRMACION COMPRA</h2>
