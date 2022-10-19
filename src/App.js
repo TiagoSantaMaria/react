@@ -2,7 +2,7 @@ import './App.css';
 
 //COMPONENTS
 import Logo from './assets/images/logoSession.png'
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer';
 
 // REACT ROUTER DOM
